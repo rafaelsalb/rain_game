@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://bem0cfl6iij6q"]
+
+[ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_wkser"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wkser")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 416.0
+offset_right = 405.0
+offset_bottom = 456.0
+
+[node name="Red" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Red"
+
+[node name="Green" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Green"
+
+[node name="Blue" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Blue"
+
+[node name="SaveButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Save"
+
+[node name="LoadButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_right = 98.0
+offset_bottom = 31.0
+text = "Load"
+
+[node name="VSlider" type="VSlider" parent="."]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 11.0
+offset_right = 627.0
+offset_bottom = 160.0
+max_value = 500.0
+step = 50.0
+value = 200.0
+
+[connection signal="button_up" from="HBoxContainer/Red" to="." method="_on_red_button_up"]
+[connection signal="button_up" from="HBoxContainer/Green" to="." method="_on_green_button_up"]
+[connection signal="button_up" from="HBoxContainer/Blue" to="." method="_on_blue_button_up"]
+[connection signal="button_up" from="SaveButton" to="." method="_on_save_button_button_up"]
+[connection signal="button_up" from="LoadButton" to="." method="_on_load_button_button_up"]
+[connection signal="drag_ended" from="VSlider" to="." method="_on_v_slider_drag_ended"]
