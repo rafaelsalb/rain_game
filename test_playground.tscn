@@ -1,16 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://0rnhkkj1pxc0"]
 
-[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_eckqs"]
+[ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
 [ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
 [ext_resource type="PackedScene" uid="uid://bla4iekb65ws4" path="res://scenes/levels/outside/outside.tscn" id="2_7qwln"]
 [ext_resource type="PackedScene" uid="uid://bem0cfl6iij6q" path="res://scenes/hud/hud.tscn" id="3_06e7i"]
 [ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="4_5wc3c"]
-[ext_resource type="Shader" path="res://global_color_overlay.gdshader" id="5_vdl3m"]
+[ext_resource type="Shader" uid="uid://cmxvhk6ebshwi" path="res://global_color_overlay.gdshader" id="5_vdl3m"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbfb8"]
 shader = ExtResource("5_vdl3m")
-shader_parameter/color = Color(0.501961, 0.501961, 0.501961, 1)
+shader_parameter/color = Color(0.25098, 0.25098, 0.25098, 1)
 
 [node name="TestPlayground" type="Node2D"]
 script = ExtResource("1_eckqs")
@@ -26,9 +26,13 @@ position = Vector2(-3, -280)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource("ShaderMaterial_fbfb8")
 offset_right = 640.0
 offset_bottom = 480.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="HUD" parent="." instance=ExtResource("3_06e7i")]
 visible = false

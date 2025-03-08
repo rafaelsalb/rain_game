@@ -1,11 +1,11 @@
 [gd_scene load_steps=26 format=3 uid="uid://c408x78e0nxn5"]
 
 [ext_resource type="Texture2D" uid="uid://bl5cxx6xp2da4" path="res://assets/Agis/Agis.png" id="1_01cjy"]
-[ext_resource type="Script" path="res://scenes/demigod/demigod.gd" id="1_7na6e"]
-[ext_resource type="Shader" path="res://resources/shaders/animated_zoom.gdshader" id="2_km8mx"]
+[ext_resource type="Script" uid="uid://c7qgpi6n02iyw" path="res://scenes/demigod/demigod.gd" id="1_7na6e"]
+[ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="2_km8mx"]
 [ext_resource type="Texture2D" uid="uid://cscy2ehwbclyp" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Green Nebula/Green_Nebula_07-512x512.png" id="2_qsl6q"]
 [ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_cek37"]
-[ext_resource type="Shader" path="res://scenes/demigod/demigod.gdshader" id="6_e6yfm"]
+[ext_resource type="Shader" uid="uid://duwbyqfxku5n" path="res://scenes/demigod/demigod.gdshader" id="6_e6yfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bospl"]
 shader = ExtResource("2_km8mx")

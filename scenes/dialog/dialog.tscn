@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://df8wlu5htu1w2"]
+
+[ext_resource type="Texture2D" uid="uid://d0mq0sidcnlgw" path="res://assets/portraits/prototype/default.png" id="1_da60a"]
+[ext_resource type="Script" uid="uid://ci0roua776314" path="res://scenes/dialog/dialog.gd" id="1_fmfh2"]
+[ext_resource type="AudioStream" uid="uid://cko5d4w0fpe0c" path="res://scenes/dialog/male_voice_calm.tres" id="3_3cdh6"]
+
+[node name="Dialog" type="Node"]
+script = ExtResource("1_fmfh2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="DialogText" type="RichTextLabel" parent="CanvasLayer/Control/Background"]
+layout_mode = 2
+offset_left = 172.0
+offset_top = 12.0
+offset_right = 628.0
+offset_bottom = 148.0
+scroll_following = true
+vertical_alignment = 1
+
+[node name="CharacterPortrait" type="TextureRect" parent="CanvasLayer/Control/Background"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 14.0
+offset_right = 180.0
+offset_bottom = 174.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_da60a")
+
+[node name="CharacterName" type="RichTextLabel" parent="CanvasLayer/Control/Background"]
+layout_mode = 0
+offset_top = 124.0
+offset_right = 160.0
+offset_bottom = 160.0
+text = "Character"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3cdh6")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://c2ct3sl38xmiu"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_j2q2e"]
-[ext_resource type="Shader" path="res://scenes/player/player.gdshader" id="2_nurtn"]
+[ext_resource type="Script" uid="uid://day2bfuyf2yao" path="res://scenes/player/player.gd" id="1_j2q2e"]
+[ext_resource type="Shader" uid="uid://dw4ybn65cgxrt" path="res://scenes/player/player.gdshader" id="2_nurtn"]
 [ext_resource type="Texture2D" uid="uid://c3o4bwir6eeyw" path="res://assets/prototype/Assets/Prototype_Character/Prototype_Character_White.png" id="3_q3oys"]
 [ext_resource type="Texture2D" uid="uid://br7qnlux18d2y" path="res://assets/action_aim.png" id="4_frasq"]
 [ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_eepd0"]
@@ -156,8 +156,8 @@ shape = SubResource("RectangleShape2D_3auae")
 visible = false
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Aim"]
-process_material = SubResource("ParticleProcessMaterial_ees0g")
 texture = ExtResource("4_frasq")
+process_material = SubResource("ParticleProcessMaterial_ees0g")
 
 [node name="Sprite2D" type="Sprite2D" parent="Aim"]
 texture = ExtResource("4_frasq")
@@ -171,5 +171,6 @@ animation = &"idle_front"
 zoom = Vector2(3, 3)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(0.25, 0.25)
+energy = 0.5
 texture = ExtResource("5_eepd0")
+texture_scale = 0.1

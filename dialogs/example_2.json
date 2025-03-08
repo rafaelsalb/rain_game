@@ -1,0 +1,20 @@
+{
+	"default": [
+		{
+			"speaker": "Player 1",
+			"text": "Hello, how are you doing?"
+		},
+		{
+			"speaker": "Michel Teló",
+			"text": "Sábado na balada."
+		},
+		{
+			"speaker": "Michel Teló",
+			"text": "A galera começou a dançar."
+		},
+		{
+			"speaker": "Michel Teló",
+			"text": "E passou a menina mais linda."
+		}
+	]
+}

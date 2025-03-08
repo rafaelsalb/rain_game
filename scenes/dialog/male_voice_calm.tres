@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cko5d4w0fpe0c"]
+
+[ext_resource type="AudioStream" uid="uid://dkdjjxhu3bkqg" path="res://assets/Essentials_Series_NOX_SOUND/Voices_Essentials_NOX_SOUND/Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_01.wav" id="1_dlprm"]
+[ext_resource type="AudioStream" uid="uid://dtvmmxoxm587t" path="res://assets/Essentials_Series_NOX_SOUND/Voices_Essentials_NOX_SOUND/Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_02.wav" id="2_ko3sm"]
+[ext_resource type="AudioStream" uid="uid://0d047hx7gvtg" path="res://assets/Essentials_Series_NOX_SOUND/Voices_Essentials_NOX_SOUND/Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_03.wav" id="3_8pkum"]
+[ext_resource type="AudioStream" uid="uid://c45s7lt2niaup" path="res://assets/Essentials_Series_NOX_SOUND/Voices_Essentials_NOX_SOUND/Voice_Male/Voice_Male_Expressions/Voice_Male_V1_Nod_Mono_04.wav" id="4_vwh55"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_dlprm")
+stream_1/stream = ExtResource("2_ko3sm")
+stream_2/stream = ExtResource("3_8pkum")
+stream_3/stream = ExtResource("4_vwh55")
