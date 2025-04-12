@@ -1,18 +1,20 @@
 extends CharacterBody2D
 
 
-var SPEED: int
+@export var player_character: PlayerCharacter = PlayerCharacter.new()
 
 var aiming_direction: Vector2 = Vector2.ZERO
 var movement_direction: Vector2 = Vector2.ZERO
-@export var player_character: PlayerCharacter = PlayerCharacter.new()
+var SPEED: int
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var interact_raycast = $InteractRayCast
 
 
 func _input(event: InputEvent) -> void:
 	movement_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	self.velocity = SPEED * movement_direction.normalized()
+	interact_raycast.target_position = 16 * movement_direction.normalized()
 	update_animation(movement_direction)
 
 	if event.is_action_pressed("change_to_red"):
@@ -22,7 +24,10 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("change_to_blue"):
 		change_color(Vector3(0.0, 0.0, 1.0))
 
-	aiming_direction = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
+	if event.is_action_pressed("interact"):
+		var collider = interact_raycast.get_collider()
+		if collider:
+			collider.interact()
 
 
 func _ready() -> void:
@@ -33,7 +38,7 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	$Aim.position = 50 * aiming_direction
+	$Aim.position = interact_raycast.target_position
 
 
 func update_animation(movement_direction) -> void:

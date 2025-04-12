@@ -15,3 +15,5 @@ Telos aceita o trabalho, e fica perplexo com a atitude da mulher.
 
 Depois de fechar a oficina, Telos sai em busca de boas madeiras para fazer suas ferramentas na floresta, Telos se encontra com uma entidade que questiona seus motivos, e planta nele uma inquietação.
 
+A entidade cria na mente de Telos a imagem da aldeia feliz, restaurada e próspera. Isso o perturba.
+

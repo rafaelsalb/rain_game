@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0rnhkkj1pxc0"]
+[gd_scene load_steps=10 format=3 uid="uid://0rnhkkj1pxc0"]
 
 [ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
 [ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="4_5wc3c"]
 [ext_resource type="Shader" uid="uid://cmxvhk6ebshwi" path="res://global_color_overlay.gdshader" id="5_vdl3m"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
+[ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="8_w8nnd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbfb8"]
 shader = ExtResource("5_vdl3m")
@@ -20,25 +21,36 @@ script = ExtResource("1_eckqs")
 [node name="Player" parent="." instance=ExtResource("1_efdqg")]
 position = Vector2(323, 240)
 
-[node name="Rain" parent="Player" instance=ExtResource("4_5wc3c")]
-position = Vector2(-3, -280)
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_fbfb8")
 offset_right = 640.0
 offset_bottom = 480.0
 
+[node name="Rain" parent="Player" instance=ExtResource("4_5wc3c")]
+position = Vector2(-3, -280)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5, 0.5, 0.5, 1)
-
-[node name="HUD" parent="." instance=ExtResource("3_06e7i")]
-visible = false
 
 [node name="EffectsManager" type="Node" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_cnp8e")
 autoplay = true
+
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DebugHUD" parent="HUDCanvasLayer" instance=ExtResource("3_06e7i")]
+visible = false
+
+[node name="NPC" parent="." instance=ExtResource("8_w8nnd")]
+position = Vector2(388, 204)
+dialog = "res://dialogs/example_2.json"
+
+[node name="NPC2" parent="." instance=ExtResource("8_w8nnd")]
+position = Vector2(257, 206)
+dialog = "res://dialogs/example.json"

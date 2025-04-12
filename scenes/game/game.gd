@@ -1,6 +1,8 @@
 extends Node
 
 
+var DEBUG_MODE: bool = false
+
 @onready var player = self.find_child("Player")
 
 
@@ -44,5 +46,7 @@ func _on_speed_changed(speed: int):
 	player.set_speed(speed)
 
 
-# func _process(_delta: float) -> void:
-# 	$Rain.emission_offset = player.position
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_pressed("switch_debug_mode"):
+		DEBUG_MODE = not DEBUG_MODE
+		$HUDCanvasLayer/DebugHUD.visible = DEBUG_MODE

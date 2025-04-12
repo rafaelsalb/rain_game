@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8r4u52lg6yt0"]
+
+[ext_resource type="Script" uid="uid://dwhxiulumk1ve" path="res://scenes/npc/npc.gd" id="1_pcwmf"]
+[ext_resource type="Texture2D" uid="uid://dbol72dv8osxl" path="res://assets/NPC_Characters_v1.0/Male1.png" id="2_dpyoa"]
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="3_dpyoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4bp4"]
+size = Vector2(17, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4bp4"]
+atlas = ExtResource("2_dpyoa")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evswx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4bp4")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.0
+}]
+
+[node name="NPC" type="StaticBody2D"]
+collision_layer = 257
+script = ExtResource("1_pcwmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_r4bp4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_evswx")
+animation = &"idle_front"
+frame_progress = 0.400925
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("3_dpyoa")

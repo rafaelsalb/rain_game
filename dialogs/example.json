@@ -2,7 +2,8 @@
 	"default": [
 		{
 			"speaker": "Character",
-			"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla quam lorem, at hendrerit sapien pellentesque lobortis. Suspendisse mi est, bibendum eget commodo nec, varius ac nibh. Vivamus efficitur rutrum gravida. Phasellus sollicitudin suscipit nulla. Vestibulum mollis, lectus sit amet ultricies venenatis, enim massa molestie magna, a euismod justo diam blandit odio. Nulla a tortor ut ante dictum vehicula suscipit eu arcu. Sed elit ante, pellentesque pellentesque hendrerit quis, porta nec ex. Fusce varius est lectus, nec porta neque commodo eget. Nunc eu auctor justo. Maecenas dolor ante, pharetra et massa quis, pharetra pellentesque elit. Vestibulum convallis consequat feugiat. Mauris eu neque felis. Pellentesque vitae lectus orci. Duis mattis eu enim a placerat. Vestibulum ut neque a lectus congue imperdiet."
+			"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla quam lorem, at hendrerit sapien pellentesque lobortis. Suspendisse mi est, bibendum eget commodo nec, varius ac nibh. Vivamus efficitur rutrum gravida. Phasellus sollicitudin suscipit nulla. Vestibulum mollis, lectus sit amet ultricies venenatis, enim massa molestie magna, a euismod justo diam blandit odio. Nulla a tortor ut ante dictum vehicula suscipit eu arcu. Sed elit ante, pellentesque pellentesque hendrerit quis, porta nec ex. Fusce varius est lectus, nec porta neque commodo eget. Nunc eu auctor justo. Maecenas dolor ante, pharetra et massa quis, pharetra pellentesque elit. Vestibulum convallis consequat feugiat. Mauris eu neque felis. Pellentesque vitae lectus orci. Duis mattis eu enim a placerat. Vestibulum ut neque a lectus congue imperdiet.",
+			"portrait": "res://assets/portraits/prototype/default.png"
 		}
 	]
 }

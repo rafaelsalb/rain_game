@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmtlau4njuryo"]
+
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="1_nngeh"]
+
+[node name="DialogSpawner" type="Area2D"]
+script = ExtResource("1_nngeh")

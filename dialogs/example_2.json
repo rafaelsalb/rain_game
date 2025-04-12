@@ -1,20 +1,34 @@
 {
 	"default": [
 		{
-			"speaker": "Player 1",
-			"text": "Hello, how are you doing?"
+			"speaker": "Aggaloch",
+			"text": "Esse aqui é um exemplo de como funciona o sistema de diálogos. ",
+			"portrait": "res://assets/portraits/Free 39 Portraits Pixel Art/1 Portraits/Icons_01.png"
 		},
 		{
-			"speaker": "Michel Teló",
-			"text": "Sábado na balada."
+			"speaker": "Player",
+			"text": "Entendi. Então, eu posso adicionar diálogos de qualquer tamanho?",
+			"portrait": "res://assets/portraits/prototype/default.png"
 		},
 		{
-			"speaker": "Michel Teló",
-			"text": "A galera começou a dançar."
+			"speaker": "Aggaloch",
+			"text": "Você pode adicionar quantos diálogos quiser, e eles serão exibidos em sequência.",
+			"portrait": "res://assets/portraits/Free 39 Portraits Pixel Art/1 Portraits/Icons_01.png"
 		},
 		{
-			"speaker": "Michel Teló",
-			"text": "E passou a menina mais linda."
+			"speaker": "Player",
+			"text": "E se eu quiser adicionar um diálogo com escolhas?",
+			"portrait": "res://assets/portraits/prototype/default.png"
+		},
+		{
+			"speaker": "Aggaloch",
+			"text": "Logo, será implementado um sistema de escolhas, que permitirá ao jogador decidir o rumo da história.",
+			"portrait": "res://assets/portraits/Free 39 Portraits Pixel Art/1 Portraits/Icons_01.png"
+		},
+		{
+			"speaker": "Aggaloch",
+			"text": "Mais alguma pergunta?",
+			"portrait": "res://assets/portraits/Free 39 Portraits Pixel Art/1 Portraits/Icons_01.png"
 		}
 	]
 }
