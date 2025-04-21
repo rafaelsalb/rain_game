@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://ofm1a0i8w8kf"]
+
+[ext_resource type="Script" uid="uid://deud0o5k3vgd8" path="res://scenes/battle/combatant.gd" id="1_ci4g0"]
+[ext_resource type="Texture2D" uid="uid://c3o4bwir6eeyw" path="res://assets/prototype/Assets/Prototype_Character/Prototype_Character_White.png" id="1_qh3t4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh7rg"]
+atlas = ExtResource("1_qh3t4")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pll4o"]
+atlas = ExtResource("1_qh3t4")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_py4tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh7rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pll4o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_ci4g0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_py4tk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -60.0
+offset_top = -78.0
+offset_right = 60.0
+offset_bottom = -38.0
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="Control/HFlowContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+rounded = true

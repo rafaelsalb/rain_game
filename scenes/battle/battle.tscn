@@ -1,4 +1,30 @@
-[gd_scene format=3 uid="uid://dhx2suqre62jw"]
+[gd_scene load_steps=12 format=3 uid="uid://dhx2suqre62jw"]
+
+[ext_resource type="Texture2D" uid="uid://bet3jaux8ymkp" path="res://assets/UI/Combat/panel.png" id="1_7gynk"]
+[ext_resource type="Texture2D" uid="uid://c8be15byspaij" path="res://assets/UI/Combat/button_icon_deselected.png" id="2_xd4uy"]
+[ext_resource type="Texture2D" uid="uid://bc6nyby7rgc0v" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonArrow01a.png" id="3_0yh6x"]
+[ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="4_0yh6x"]
+[ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="5_fh7rg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd4uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py4tk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pll4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0kxc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh7rg"]
+
+[sub_resource type="Theme" id="Theme_pll4o"]
+default_font = ExtResource("4_0yh6x")
+Button/icons/icon = ExtResource("2_xd4uy")
+Button/icons/selected = ExtResource("3_0yh6x")
+Button/styles/disabled = SubResource("StyleBoxEmpty_xd4uy")
+Button/styles/focus = SubResource("StyleBoxEmpty_py4tk")
+Button/styles/hover = SubResource("StyleBoxEmpty_pll4o")
+Button/styles/normal = SubResource("StyleBoxEmpty_h0kxc")
+Button/styles/pressed = SubResource("StyleBoxEmpty_fh7rg")
 
 [node name="Battle" type="Node2D"]
 
@@ -30,12 +56,87 @@ offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 480.0
+[node name="BattleUI" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="HUD/VBoxContainer"]
+[node name="Selection" type="NinePatchRect" parent="HUD/BattleUI"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_7gynk")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BattleUI/Selection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/BattleUI/Selection/MarginContainer"]
+layout_mode = 2
+
+[node name="AttackButton" type="Button" parent="HUD/BattleUI/Selection/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pll4o")
+theme_override_font_sizes/font_size = 24
+text = "Atacar"
+alignment = 0
+
+[node name="ItemButton" type="Button" parent="HUD/BattleUI/Selection/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pll4o")
+theme_override_font_sizes/font_size = 24
+text = "Item"
+alignment = 0
+
+[node name="FleeButton" type="Button" parent="HUD/BattleUI/Selection/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pll4o")
+theme_override_font_sizes/font_size = 24
+text = "Fugir"
+alignment = 0
+
+[node name="Details" type="NinePatchRect" parent="HUD/BattleUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_7gynk")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Characters" type="Node2D" parent="." groups=["battle_manager"]]
+
+[node name="Player" parent="Characters" instance=ExtResource("5_fh7rg")]
+position = Vector2(183, 200)
+
+[node name="Player2" parent="Characters" instance=ExtResource("5_fh7rg")]
+position = Vector2(443, 200)
