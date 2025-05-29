@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://0rnhkkj1pxc0"]
+[gd_scene load_steps=11 format=3 uid="uid://0rnhkkj1pxc0"]
 
 [ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
 [ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://cmxvhk6ebshwi" path="res://global_color_overlay.gdshader" id="5_vdl3m"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
 [ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="8_w8nnd"]
+[ext_resource type="PackedScene" uid="uid://desyhi2j1xs7n" path="res://scenes/demigod_area/demigod_area.tscn" id="9_ja0op"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbfb8"]
 shader = ExtResource("5_vdl3m")
@@ -19,6 +20,7 @@ script = ExtResource("1_eckqs")
 [node name="Outside" parent="." instance=ExtResource("2_7qwln")]
 
 [node name="Player" parent="." instance=ExtResource("1_efdqg")]
+z_index = 1
 position = Vector2(323, 240)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
@@ -54,3 +56,6 @@ dialog = "res://dialogs/example_2.json"
 [node name="NPC2" parent="." instance=ExtResource("8_w8nnd")]
 position = Vector2(257, 206)
 dialog = "res://dialogs/example.json"
+
+[node name="DemigodArea" parent="." instance=ExtResource("9_ja0op")]
+position = Vector2(608, 213)

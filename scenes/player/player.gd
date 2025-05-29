@@ -46,7 +46,7 @@ func update_animation(movement_direction) -> void:
 
 	if movement_direction.x:
 		animation = "walk_side"
-		animated_sprite.flip_h = movement_direction.x < 0
+		animated_sprite.flip_h = movement_direction.x > 0
 	elif movement_direction.y:
 		animation = "walk_up" if movement_direction.y < 0 else "walk_down"
 

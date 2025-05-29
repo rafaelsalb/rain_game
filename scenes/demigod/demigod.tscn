@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c408x78e0nxn5"]
+[gd_scene load_steps=30 format=3 uid="uid://c408x78e0nxn5"]
 
 [ext_resource type="Texture2D" uid="uid://bl5cxx6xp2da4" path="res://assets/Agis/Agis.png" id="1_01cjy"]
 [ext_resource type="Script" uid="uid://c7qgpi6n02iyw" path="res://scenes/demigod/demigod.gd" id="1_7na6e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cscy2ehwbclyp" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Green Nebula/Green_Nebula_07-512x512.png" id="2_qsl6q"]
 [ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_cek37"]
 [ext_resource type="Shader" uid="uid://duwbyqfxku5n" path="res://scenes/demigod/demigod.gdshader" id="6_e6yfm"]
+[ext_resource type="PackedScene" uid="uid://cutjahq1a2w7x" path="res://scenes/gemini_api/gemini_api.tscn" id="6_rx0r8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bospl"]
 shader = ExtResource("2_km8mx")
@@ -133,6 +134,66 @@ shader_parameter/vpass = 1.0
 shader_parameter/radius = 65
 shader_parameter/glow_threshold = 0.5
 
+[sub_resource type="Animation" id="Animation_q8nlp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeInCanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0.498039, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeInCanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rx0r8"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeInCanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0.498039, 1), Color(1, 0, 0.498039, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeInCanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hrb1a"]
+_data = {
+&"RESET": SubResource("Animation_q8nlp"),
+&"fade_in": SubResource("Animation_rx0r8")
+}
+
 [node name="Demigod" type="Node2D"]
 script = ExtResource("1_7na6e")
 
@@ -169,6 +230,8 @@ blend_mode = 2
 range_item_cull_mask = 2
 texture = ExtResource("5_cek37")
 
+[node name="GeminiAPI" parent="." instance=ExtResource("6_rx0r8")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -178,3 +241,71 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 320.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 100
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="Label" type="RichTextLabel" parent="Control/Panel/VSplitContainer"]
+layout_mode = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/Panel/VSplitContainer"]
+layout_mode = 2
+split_offset = 533
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="LineEdit" type="LineEdit" parent="Control/Panel/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+placeholder_text = "Escreva sua pergunta aqui..."
+
+[node name="Button" type="Button" parent="Control/Panel/VSplitContainer/HSplitContainer"]
+layout_mode = 2
+text = "Perguntar"
+
+[node name="FadeInCanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="FadeInCanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0.498039, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hrb1a")
+}
+
+[connection signal="button_down" from="Control/Panel/VSplitContainer/HSplitContainer/Button" to="." method="_on_button_button_down"]
