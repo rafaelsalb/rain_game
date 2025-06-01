@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=4 uid="uid://bu3iu845ve22p"]
+
+[ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="1_hw6nj"]
+[ext_resource type="Script" uid="uid://c1xylm0i041v8" path="res://scenes/cutscenes/oracle/oracle_cutscene.gd" id="1_jsp4k"]
+[ext_resource type="Texture2D" uid="uid://dnsta5rgjqrj0" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Green Nebula/Green_Nebula_06-512x512.png" id="2_eym5f"]
+[ext_resource type="PackedScene" uid="uid://kcvs0aec1ohq" path="res://scenes/demigod/demigod_sprite.tscn" id="3_eym5f"]
+[ext_resource type="TileSet" uid="uid://tnpi53evbci8" path="res://resources/tilesets/tileset.tres" id="3_jsp4k"]
+[ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="4_a02t2"]
+[ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="5_hicv5"]
+[ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="8_a02t2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6np0h"]
+shader = ExtResource("1_hw6nj")
+shader_parameter/scaling_factor = 1000.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pptbe"]
+texture = ExtResource("4_a02t2")
+2:10/size_in_atlas = Vector2i(4, 6)
+2:10/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwfx7"]
+texture = ExtResource("5_hicv5")
+12:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_igwk7"]
+sources/0 = SubResource("TileSetAtlasSource_pptbe")
+sources/1 = SubResource("TileSetAtlasSource_lwfx7")
+
+[sub_resource type="Animation" id="Animation_hicv5"]
+resource_name = "main"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 6.06667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"walk_up", &"walk_up", &"idle_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(327, 516), Vector2(327, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_6np0h"]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"walk_up"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(327, 516)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pptbe"]
+_data = {
+&"RESET": SubResource("Animation_6np0h"),
+&"main": SubResource("Animation_hicv5")
+}
+
+[node name="OracleCutscene" type="Node2D"]
+script = ExtResource("1_jsp4k")
+
+[node name="Background" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6np0h")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_eym5f")
+centered = false
+
+[node name="OraclePosition" type="Marker2D" parent="."]
+position = Vector2(329, 235)
+
+[node name="OracleSprite" parent="." instance=ExtResource("3_eym5f")]
+position = Vector2(329, 235)
+scale = Vector2(1.5, 1.5)
+
+[node name="Grass" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAAUABsAAAACAAoAAAAJAA4AAAAKAAQAAAAIAA4AAAAIAAAAAAAHAA4AAAAIAAIAAAAHAA0AAAACAAAAAAAIAA0AAAAIAAAAAAAIAAwAAAAAAAQAAAAJAAwAAAAKAAQAAAAJAA0AAAAEAAYAAAAHAAwAAAAOAAIAAAAGAA4AAAAIAAQAAAAFAA4AAAAKAAYAAAAGAA0AAAAGAAIAAAAEAA4AAAAAAAIAAAAEAA8AAAAOAAQAAAAFAA0AAAAKAAAAAAADAA4AAAAEAAQAAAACAA4AAAAAAAAAAAABAA4AAAAOAAYAAAAKAA0AAAAGAAIAAAALAA0AAAAOAAAAAAAMAA0AAAAKAAYAAAANAA0AAAAOAAAAAAAKAAwAAAAGAAQAAAALAAwAAAAIAAAAAAAMAAwAAAAAAAYAAAAMAA4AAAAMAAIAAAALAA4AAAAAAAYAAAANAA4AAAACAAQAAAAOAA4AAAAMAAQAAAAPAA4AAAAKAAAAAAAQAA4AAAAMAAYAAAARAA4AAAAEAAAAAAAPAA0AAAAMAAYAAAAOAA0AAAAAAAIAAAAQAA0AAAAKAAQAAAARAA0AAAAIAAAAAAANAAwAAAAGAAAAAAAOAAwAAAAMAAIAAAASAA4AAAAMAAIAAAATAA4AAAAEAAYAAAAGAAwAAAAKAAQAAAAEAA0AAAAAAAAAAAAFAAwAAAAGAAYAAAACAA0AAAAKAAYAAAADAA0AAAAIAAYAAAA=")
+tile_set = ExtResource("3_jsp4k")
+
+[node name="Stairs" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAUABsAAAACAAoAAAA=")
+tile_set = SubResource("TileSet_igwk7")
+
+[node name="PlayerSprite" parent="." instance=ExtResource("8_a02t2")]
+position = Vector2(327, 516)
+animation = &"walk_up"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pptbe")
+}

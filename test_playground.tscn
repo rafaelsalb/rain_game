@@ -15,12 +15,12 @@ shader = ExtResource("5_vdl3m")
 shader_parameter/color = Color(0.25098, 0.25098, 0.25098, 1)
 
 [node name="TestPlayground" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_eckqs")
 
 [node name="Outside" parent="." instance=ExtResource("2_7qwln")]
 
 [node name="Player" parent="." instance=ExtResource("1_efdqg")]
-z_index = 1
 position = Vector2(323, 240)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player"]
@@ -50,10 +50,12 @@ autoplay = true
 visible = false
 
 [node name="NPC" parent="." instance=ExtResource("8_w8nnd")]
+y_sort_enabled = true
 position = Vector2(388, 204)
 dialog = "res://dialogs/example_2.json"
 
 [node name="NPC2" parent="." instance=ExtResource("8_w8nnd")]
+y_sort_enabled = true
 position = Vector2(257, 206)
 dialog = "res://dialogs/example.json"
 

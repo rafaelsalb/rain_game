@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c7qgpi6n02iyw" path="res://scenes/demigod/demigod.gd" id="1_7na6e"]
 [ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="2_km8mx"]
 [ext_resource type="Texture2D" uid="uid://cscy2ehwbclyp" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Green Nebula/Green_Nebula_07-512x512.png" id="2_qsl6q"]
-[ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_cek37"]
+[ext_resource type="PackedScene" uid="uid://kcvs0aec1ohq" path="res://scenes/demigod/demigod_sprite.tscn" id="5_rx0r8"]
 [ext_resource type="Shader" uid="uid://duwbyqfxku5n" path="res://scenes/demigod/demigod.gdshader" id="6_e6yfm"]
 [ext_resource type="PackedScene" uid="uid://cutjahq1a2w7x" path="res://scenes/gemini_api/gemini_api.tscn" id="6_rx0r8"]
 
@@ -214,21 +214,8 @@ scale = Vector2(2.6, 2.6)
 sprite_frames = SubResource("SpriteFrames_ncvi6")
 frame_progress = 0.482647
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_foq3j")
+[node name="AnimatedSprite" parent="." instance=ExtResource("5_rx0r8")]
 position = Vector2(320, 260)
-scale = Vector2(2.5, 2.5)
-sprite_frames = SubResource("SpriteFrames_ncvi6")
-frame_progress = 0.482647
-
-[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite"]
-visible = false
-scale = Vector2(0.2, 0.2)
-color = Color(0.895896, 0.125995, 0.665363, 1)
-energy = 2.0
-blend_mode = 2
-range_item_cull_mask = 2
-texture = ExtResource("5_cek37")
 
 [node name="GeminiAPI" parent="." instance=ExtResource("6_rx0r8")]
 

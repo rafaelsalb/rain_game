@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33qdy43qddjh"]
+
+[sub_resource type="TileSet" id="TileSet_nv8hj"]
+
+[node name="InitialCutscene" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="World" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_nv8hj")

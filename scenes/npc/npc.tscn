@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="3_dpyoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4bp4"]
-size = Vector2(17, 33)
+size = Vector2(7, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r4bp4"]
 atlas = ExtResource("2_dpyoa")
@@ -27,13 +27,16 @@ collision_layer = 257
 script = ExtResource("1_pcwmf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -1.5)
+position = Vector2(-0.5, 12)
 shape = SubResource("RectangleShape2D_r4bp4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 12)
 sprite_frames = SubResource("SpriteFrames_evswx")
 animation = &"idle_front"
 frame_progress = 0.400925
+offset = Vector2(0, -12)
 
 [node name="DialogSpawner" type="Node" parent="."]
 script = ExtResource("3_dpyoa")
