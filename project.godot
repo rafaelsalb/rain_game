@@ -25,6 +25,7 @@ EnvironmentVars="*res://environment.gd"
 window/size/viewport_width=640
 window/size/viewport_height=480
 window/size/resizable=false
+mouse_cursor/custom_image="uid://djjc076vfvpnb"
 
 [global_group]
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c07sirhqje4en"]
+[gd_scene load_steps=7 format=3 uid="uid://c07sirhqje4en"]
 
 [ext_resource type="Script" uid="uid://co7jb7akc0bnj" path="res://scenes/effects/rain/rain.gd" id="1_cbw7e"]
+[ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="2_4w1n1"]
+[ext_resource type="AudioStream" uid="uid://1w2m45l5axkr" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Strong_Loop_Stereo.wav" id="3_apbhq"]
 
 [sub_resource type="Curve" id="Curve_8u1xr"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -40,3 +42,11 @@ trail_enabled = true
 trail_lifetime = 0.05
 trail_sections = 4
 process_material = SubResource("ParticleProcessMaterial_74h8d")
+
+[node name="AudioStreamPlayerSelector" type="Node" parent="."]
+
+[node name="Calm" type="AudioStreamPlayer" parent="AudioStreamPlayerSelector"]
+stream = ExtResource("2_4w1n1")
+
+[node name="Strong" type="AudioStreamPlayer" parent="AudioStreamPlayerSelector"]
+stream = ExtResource("3_apbhq")

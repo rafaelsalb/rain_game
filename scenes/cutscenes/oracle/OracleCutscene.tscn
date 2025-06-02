@@ -1,13 +1,15 @@
-[gd_scene load_steps=16 format=4 uid="uid://bu3iu845ve22p"]
+[gd_scene load_steps=19 format=3 uid="uid://bu3iu845ve22p"]
 
 [ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="1_hw6nj"]
 [ext_resource type="Script" uid="uid://c1xylm0i041v8" path="res://scenes/cutscenes/oracle/oracle_cutscene.gd" id="1_jsp4k"]
 [ext_resource type="Texture2D" uid="uid://dnsta5rgjqrj0" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Green Nebula/Green_Nebula_06-512x512.png" id="2_eym5f"]
 [ext_resource type="PackedScene" uid="uid://kcvs0aec1ohq" path="res://scenes/demigod/demigod_sprite.tscn" id="3_eym5f"]
-[ext_resource type="TileSet" uid="uid://tnpi53evbci8" path="res://resources/tilesets/tileset.tres" id="3_jsp4k"]
 [ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="4_a02t2"]
 [ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="5_hicv5"]
+[ext_resource type="Texture2D" uid="uid://d4jvyk4g0yk11" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Tiles.png" id="7_a02t2"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="8_a02t2"]
+[ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="9_hicv5"]
+[ext_resource type="AudioStream" uid="uid://ba0f4ed8bxdan" path="res://assets/music/oracle.ogg" id="10_6np0h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6np0h"]
 shader = ExtResource("1_hw6nj")
@@ -22,9 +24,17 @@ texture = ExtResource("4_a02t2")
 texture = ExtResource("5_hicv5")
 12:11/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hicv5"]
+texture = ExtResource("7_a02t2")
+6:0/size_in_atlas = Vector2i(6, 10)
+6:0/0 = 0
+9:16/size_in_atlas = Vector2i(3, 2)
+9:16/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_igwk7"]
 sources/0 = SubResource("TileSetAtlasSource_pptbe")
 sources/1 = SubResource("TileSetAtlasSource_lwfx7")
+sources/2 = SubResource("TileSetAtlasSource_hicv5")
 
 [sub_resource type="Animation" id="Animation_hicv5"]
 resource_name = "main"
@@ -103,13 +113,13 @@ position = Vector2(329, 235)
 position = Vector2(329, 235)
 scale = Vector2(1.5, 1.5)
 
-[node name="Grass" type="TileMapLayer" parent="."]
-visible = false
-tile_map_data = PackedByteArray("AAAUABsAAAACAAoAAAAJAA4AAAAKAAQAAAAIAA4AAAAIAAAAAAAHAA4AAAAIAAIAAAAHAA0AAAACAAAAAAAIAA0AAAAIAAAAAAAIAAwAAAAAAAQAAAAJAAwAAAAKAAQAAAAJAA0AAAAEAAYAAAAHAAwAAAAOAAIAAAAGAA4AAAAIAAQAAAAFAA4AAAAKAAYAAAAGAA0AAAAGAAIAAAAEAA4AAAAAAAIAAAAEAA8AAAAOAAQAAAAFAA0AAAAKAAAAAAADAA4AAAAEAAQAAAACAA4AAAAAAAAAAAABAA4AAAAOAAYAAAAKAA0AAAAGAAIAAAALAA0AAAAOAAAAAAAMAA0AAAAKAAYAAAANAA0AAAAOAAAAAAAKAAwAAAAGAAQAAAALAAwAAAAIAAAAAAAMAAwAAAAAAAYAAAAMAA4AAAAMAAIAAAALAA4AAAAAAAYAAAANAA4AAAACAAQAAAAOAA4AAAAMAAQAAAAPAA4AAAAKAAAAAAAQAA4AAAAMAAYAAAARAA4AAAAEAAAAAAAPAA0AAAAMAAYAAAAOAA0AAAAAAAIAAAAQAA0AAAAKAAQAAAARAA0AAAAIAAAAAAANAAwAAAAGAAAAAAAOAAwAAAAMAAIAAAASAA4AAAAMAAIAAAATAA4AAAAEAAYAAAAGAAwAAAAKAAQAAAAEAA0AAAAAAAAAAAAFAAwAAAAGAAYAAAACAA0AAAAKAAYAAAADAA0AAAAIAAYAAAA=")
-tile_set = ExtResource("3_jsp4k")
+[node name="Hill" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 20, 0, 27, 0, 2, 0, 6, 0, 0, 0, 0, 0, 20, 0, 26, 0, 2, 0, 0, 0, 0, 0, 0, 0, 20, 0, 28, 0, 2, 0, 9, 0, 16, 0, 0, 0, 20, 0, 30, 0, 2, 0, 9, 0, 16, 0, 0, 0)
+tile_set = SubResource("TileSet_igwk7")
 
 [node name="Stairs" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAUABsAAAACAAoAAAA=")
+visible = false
+tile_map_data = PackedByteArray(0, 0, 20, 0, 27, 0, 0, 0, 2, 0, 10, 0, 0, 0)
 tile_set = SubResource("TileSet_igwk7")
 
 [node name="PlayerSprite" parent="." instance=ExtResource("8_a02t2")]
@@ -120,3 +130,12 @@ animation = &"walk_up"
 libraries = {
 &"": SubResource("AnimationLibrary_pptbe")
 }
+
+[node name="Rain" parent="." instance=ExtResource("9_hicv5")]
+position = Vector2(416, 54)
+audio_volume = 0.05
+rain_strength = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6np0h")
+autoplay = true
