@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://diagg4otx2rw0"]
+
+[ext_resource type="Texture2D" uid="uid://br7qnlux18d2y" path="res://assets/action_aim.png" id="1_xdjw2"]
+[ext_resource type="Script" uid="uid://c25pt7imb3uc" path="res://scenes/item/item_pickup_particles.gd" id="2_k4rlj"]
+
+[sub_resource type="Curve" id="Curve_k4rlj"]
+_data = [Vector2(0, 0.500267), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0odp"]
+curve = SubResource("Curve_k4rlj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pbp1a"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_s0odp")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="ItemPickupParticles" type="GPUParticles2D"]
+emitting = false
+texture = ExtResource("1_xdjw2")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_pbp1a")
+script = ExtResource("2_k4rlj")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

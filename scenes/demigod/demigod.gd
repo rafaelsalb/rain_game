@@ -9,7 +9,7 @@ var time: float = 0.0;
 
 func _ready() -> void:
 	animated_sprite.play()
-	$Control/Panel/VSplitContainer/HSplitContainer/LineEdit.grab_focus()
+	$HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer/LineEdit.grab_focus()
 
 	$AnimationPlayer.play("fade_in")
 
@@ -32,3 +32,8 @@ func _on_chat_message_received(message: String) -> void:
 	$Control/Panel/VSplitContainer/Label.text = message
 	$Control/Panel/VSplitContainer/HSplitContainer/LineEdit.text = ""
 	$Control/Panel/VSplitContainer/HSplitContainer/LineEdit.grab_focus()
+
+
+func _on_button_button_up() -> void:
+	var level = load("res://scenes/test_playground.tscn")
+	LevelManager.change_level(level)

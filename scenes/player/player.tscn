@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2ct3sl38xmiu"]
+[gd_scene load_steps=9 format=3 uid="uid://c2ct3sl38xmiu"]
 
 [ext_resource type="Script" uid="uid://day2bfuyf2yao" path="res://scenes/player/player.gd" id="1_j2q2e"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://br7qnlux18d2y" path="res://assets/action_aim.png" id="4_frasq"]
+[ext_resource type="PackedScene" uid="uid://cge4x4ms5ouwr" path="res://scenes/player/hud/hud.tscn" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_eepd0"]
+[ext_resource type="AudioStream" uid="uid://d1hjc7057a8s5" path="res://assets/RPG_Essentials_Free/12_Player_Movement_SFX/03_Step_grass_03.wav" id="5_p47bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3auae"]
 size = Vector2(12, 9)
@@ -51,5 +53,17 @@ texture = ExtResource("5_eepd0")
 texture_scale = 0.1
 
 [node name="InteractRayCast" type="RayCast2D" parent="."]
+position = Vector2(0, 12)
 target_position = Vector2(0, 16)
 collision_mask = 256
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 2
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("5_75vfm")]
+
+[node name="StepAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_p47bc")

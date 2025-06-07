@@ -1,4 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d33qdy43qddjh"]
+[gd_scene load_steps=5 format=3 uid="uid://d33qdy43qddjh"]
+
+[ext_resource type="PackedScene" uid="uid://bla4iekb65ws4" path="res://scenes/levels/outside/outside.tscn" id="1_frq6d"]
+[ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="2_j5cko"]
+[ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="3_knu47"]
 
 [sub_resource type="TileSet" id="TileSet_nv8hj"]
 
@@ -8,3 +12,11 @@
 
 [node name="World" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_nv8hj")
+
+[node name="Outside" parent="." instance=ExtResource("1_frq6d")]
+
+[node name="PlayerSprite" parent="." instance=ExtResource("2_j5cko")]
+position = Vector2(230, 699)
+
+[node name="NPC" parent="." instance=ExtResource("3_knu47")]
+position = Vector2(227, 596)

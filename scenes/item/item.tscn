@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxpa0b4q6trip"]
+
+[ext_resource type="Script" uid="uid://dvbtkb7u5uqqb" path="res://scenes/item/item.gd" id="1_vijbe"]
+[ext_resource type="PackedScene" uid="uid://bwl4o50152h2i" path="res://scenes/item/item_sprite.tscn" id="2_vijbe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vijbe"]
+size = Vector2(12, 12)
+
+[node name="Item" type="Area2D"]
+script = ExtResource("1_vijbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vijbe")
+
+[node name="AnimatedSprite2D" parent="." instance=ExtResource("2_vijbe")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

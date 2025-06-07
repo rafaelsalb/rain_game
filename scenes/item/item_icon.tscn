@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://beexgrrs4vy61"]
+
+[ext_resource type="Texture2D" uid="uid://84mpn7061ee6" path="res://resources/item_atlas.tres" id="1_j3smg"]
+[ext_resource type="Script" uid="uid://2sb24cwxlfvl" path="res://scenes/item/item_icon.gd" id="2_j3smg"]
+
+[node name="ItemIcon" type="TextureRect"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_j3smg")
+stretch_mode = 4
+script = ExtResource("2_j3smg")

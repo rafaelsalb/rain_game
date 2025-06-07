@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://84mpn7061ee6"]
+
+[ext_resource type="Texture2D" uid="uid://bjvwx0pbg06yo" path="res://assets/FreePixelFood/Assets/FreePixelFood/Sprite/Food.png" id="1_xling"]
+
+[resource]
+atlas = ExtResource("1_xling")
+region = Rect2(0, 0, 16, 16)

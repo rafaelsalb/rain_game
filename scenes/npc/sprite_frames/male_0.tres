@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cdvkjc6b0pb3p"]
+
+[ext_resource type="Texture2D" uid="uid://dbol72dv8osxl" path="res://assets/NPC_Characters_v1.0/Male1.png" id="1_jrol7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4bp4"]
+atlas = ExtResource("1_jrol7")
+region = Rect2(0, 48, 32, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4bp4")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.0
+}]
