@@ -14,7 +14,7 @@ var is_interacting: bool = false
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var interact_raycast = $InteractRayCast
-@onready var items_container = $CanvasLayer/HUD/PlayerMenu/PanelContainer/MarginContainer/HBoxContainer/InventoryMenu/Inventory
+@onready var items_container = $CanvasLayer/HUD/PlayerMenu/PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/InventoryMenu/VSplitContainer/Inventory
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 @onready var step_audio_player = $StepAudioPlayer
 @onready var player_menu = $CanvasLayer/HUD/PlayerMenu
@@ -120,3 +120,14 @@ func _on_inventory_item_activated(index: int) -> void:
 
 func show_hud() -> void:
 	$CanvasLayer/HUD/HealthBar.visible = true
+
+
+func hide_hud() -> void:
+	$CanvasLayer/HUD/HealthBar.visible = false
+
+
+func get_stats() -> Dictionary:
+	return {
+		"max_health": 100,
+		"health": health
+	}

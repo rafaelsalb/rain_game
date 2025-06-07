@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bu3iu845ve22p"]
+[gd_scene load_steps=15 format=3 uid="uid://bu3iu845ve22p"]
 
 [ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="1_hw6nj"]
 [ext_resource type="Script" uid="uid://c1xylm0i041v8" path="res://scenes/cutscenes/oracle/oracle_cutscene.gd" id="1_jsp4k"]
@@ -6,10 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kcvs0aec1ohq" path="res://scenes/demigod/demigod_sprite.tscn" id="3_eym5f"]
 [ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="4_a02t2"]
 [ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="5_hicv5"]
-[ext_resource type="Texture2D" uid="uid://d4jvyk4g0yk11" path="res://assets/Pixel Crawler - Free Pack/Environment/Tilesets/Wall_Tiles.png" id="7_a02t2"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="8_a02t2"]
-[ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="9_hicv5"]
-[ext_resource type="AudioStream" uid="uid://ba0f4ed8bxdan" path="res://assets/music/oracle.ogg" id="10_6np0h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6np0h"]
 shader = ExtResource("1_hw6nj")
@@ -23,13 +20,6 @@ texture = ExtResource("4_a02t2")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwfx7"]
 texture = ExtResource("5_hicv5")
 12:11/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hicv5"]
-texture = ExtResource("7_a02t2")
-6:0/size_in_atlas = Vector2i(6, 10)
-6:0/0 = 0
-9:16/size_in_atlas = Vector2i(3, 2)
-9:16/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_igwk7"]
 sources/0 = SubResource("TileSetAtlasSource_pptbe")

@@ -8,13 +8,51 @@
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 240.0
 script = ExtResource("1_r5mco")
 
-[node name="Inventory" type="ItemList" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+editor_description = "Empty inventory container."
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
-offset_top = 33.0
-offset_right = 288.0
-offset_bottom = 240.0
+text = "Inventário vazio."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = -16
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="QuitButton" type="TextureButton" parent="VSplitContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_sdlok")
+flip_h = true
+
+[node name="Inventory" type="ItemList" parent="VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
 theme_override_font_sizes/font_size = 10
 theme_override_styles/panel = SubResource("StyleBoxEmpty_g26ul")
 allow_search = false
@@ -22,24 +60,5 @@ max_columns = 4
 icon_mode = 0
 fixed_icon_size = Vector2i(32, 32)
 
-[node name="QuitButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = -16.0
-offset_right = 16.0
-offset_bottom = 32.0
-texture_normal = ExtResource("2_sdlok")
-stretch_mode = 0
-flip_h = true
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 120.0
-offset_right = 209.0
-offset_bottom = 143.0
-text = "Inventário vazio."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="item_activated" from="Inventory" to="." method="_on_inventory_item_activated"]
-[connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="VSplitContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="item_activated" from="VSplitContainer/Inventory" to="." method="_on_inventory_item_activated"]

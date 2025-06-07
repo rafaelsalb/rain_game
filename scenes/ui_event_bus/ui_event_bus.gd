@@ -21,12 +21,14 @@ func closed_menu() -> void:
 func inventory_item_activated(index: int) -> void:
 	if player:
 		player._on_inventory_item_activated(index)
+		main_menu.update_stats(player.get_stats())
 
 
 func pause() -> void:
 	get_tree().paused = true
 	main_menu.visible = true
 	main_menu.back_to_main_menu()
+	player.hide_hud()
 	print("Paused")
 
 
@@ -34,5 +36,11 @@ func unpause() -> void:
 	get_tree().paused = false
 	main_menu.visible = false
 	main_menu.back_to_main_menu()
+	player.show_hud()
 	closed_menu()
 	print("Unpaused")
+
+
+func sync_stats() -> void:
+	var stats = player.get_stats()
+	main_menu.update_stats(stats)

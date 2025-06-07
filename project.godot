@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 LevelManager="*res://level_manager.gd"
 EnvironmentVars="*res://environment.gd"
 UIEventBus="*res://scenes/ui_event_bus/ui_event_bus.gd"
+Cursors="*res://scenes/cursor/cursors.gd"
 
 [display]
 

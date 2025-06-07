@@ -39,6 +39,7 @@ offset_bottom = 480.0
 
 [node name="Rain" parent="Player" instance=ExtResource("4_5wc3c")]
 position = Vector2(-3, -280)
+rain_strength = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5, 0.5, 0.5, 1)
