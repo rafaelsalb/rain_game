@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtwdbudt2pek6"]
+
+[ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="1_2cvwu"]
+[ext_resource type="SpriteFrames" uid="uid://cdvkjc6b0pb3p" path="res://scenes/npc/sprite_frames/male_0.tres" id="2_j6x88"]
+
+[node name="NPC" instance=ExtResource("1_2cvwu")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+y_sort_enabled = true
+position = Vector2(0, 14)
+sprite_frames = ExtResource("2_j6x88")
+animation = &"idle_front"
+frame_progress = 0.400925
+offset = Vector2(0, -14)

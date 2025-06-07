@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://3564isxovrhl"]
+
+[ext_resource type="Script" uid="uid://cixl8tfo0k3mt" path="res://scenes/player/player_menu.gd" id="1_4uo60"]
+[ext_resource type="PackedScene" uid="uid://cwy6f6pw0h25n" path="res://scenes/player/hud/inventory_menu.tscn" id="2_3cec4"]
+[ext_resource type="Texture2D" uid="uid://msdwqkuuj20u" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01a.png" id="2_xwxel"]
+[ext_resource type="Texture2D" uid="uid://d11aiwg3d3lhm" path="res://resources/atlas/Male1_atlas.tres" id="3_g26ul"]
+
+[node name="PlayerMenu" type="Panel" groups=["ui_main_menu"]]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -120.0
+offset_right = 160.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4uo60")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StatsContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Atributos"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VidaLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Vida: "
+horizontal_alignment = 2
+
+[node name="VidaCountLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "0/100"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer"]
+layout_mode = 2
+texture = ExtResource("3_g26ul")
+stretch_mode = 5
+
+[node name="MenuButtonsContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainMenu" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="InventoryButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
+layout_mode = 2
+text = "Inventário"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
+layout_mode = 2
+text = "Sair"
+
+[node name="InventoryMenu" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("2_3cec4")]
+visible = false
+layout_mode = 2
+
+[node name="CloseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 288.0
+offset_right = 320.0
+offset_bottom = 32.0
+texture_normal = ExtResource("2_xwxel")
+stretch_mode = 0
+
+[connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/InventoryButton" to="." method="_on_inventory_button_button_up"]
+[connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/QuitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]

@@ -229,7 +229,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Control" type="Control" parent="HUDCanvasLayer"]
 z_index = 10
 layout_mode = 3
 anchors_preset = 15
@@ -240,7 +243,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="Panel" parent="HUDCanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -251,7 +254,7 @@ offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Control/Panel"]
+[node name="VSplitContainer" type="VSplitContainer" parent="HUDCanvasLayer/Control/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -262,22 +265,28 @@ split_offset = 100
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="Label" type="RichTextLabel" parent="Control/Panel/VSplitContainer"]
+[node name="Label" type="RichTextLabel" parent="HUDCanvasLayer/Control/Panel/VSplitContainer"]
 layout_mode = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Control/Panel/VSplitContainer"]
+[node name="HSplitContainer" type="HSplitContainer" parent="HUDCanvasLayer/Control/Panel/VSplitContainer"]
 layout_mode = 2
 split_offset = 533
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="LineEdit" type="LineEdit" parent="Control/Panel/VSplitContainer/HSplitContainer"]
+[node name="LineEdit" type="LineEdit" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
 layout_mode = 2
 placeholder_text = "Escreva sua pergunta aqui..."
 
-[node name="Button" type="Button" parent="Control/Panel/VSplitContainer/HSplitContainer"]
+[node name="Button" type="Button" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
 layout_mode = 2
 text = "Perguntar"
+
+[node name="QuitButton" type="Button" parent="HUDCanvasLayer/Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Voltar"
 
 [node name="FadeInCanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -295,4 +304,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_hrb1a")
 }
 
-[connection signal="button_down" from="Control/Panel/VSplitContainer/HSplitContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="HUDCanvasLayer/Control/QuitButton" to="." method="_on_button_button_up"]

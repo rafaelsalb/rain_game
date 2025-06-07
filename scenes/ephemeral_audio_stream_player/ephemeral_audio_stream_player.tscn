@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgg1pvqelncc3"]
+
+[ext_resource type="Script" uid="uid://dmbv5wpkiqg0d" path="res://scenes/ephemeral_audio_stream_player/ephemeral_audio_stream_player.gd" id="1_1kckw"]
+
+[node name="EphemeralAudioStreamPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_1kckw")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://cge4x4ms5ouwr"]
+
+[ext_resource type="Texture2D" uid="uid://ynbqfbo4v1xd" path="res://assets/UI/health_bar.png" id="1_ko8bi"]
+[ext_resource type="Texture2D" uid="uid://cthyph14fgom4" path="res://assets/UI/health_bar_progress.png" id="2_qu37h"]
+[ext_resource type="Texture2D" uid="uid://d2stnpbn7vqic" path="res://assets/UI/health_bar_over.png" id="3_vo6io"]
+[ext_resource type="PackedScene" uid="uid://3564isxovrhl" path="res://scenes/player/player_menu.tscn" id="4_nq0si"]
+[ext_resource type="Texture2D" uid="uid://cyljj3hv31ilh" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ToggleLeftOff01a.png" id="5_nq0si"]
+[ext_resource type="Texture2D" uid="uid://cnk7ndxoslkal" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ToggleLeftOn01a.png" id="6_ci0c8"]
+[ext_resource type="Script" uid="uid://c50j5vm7y33gj" path="res://scenes/player/hud/pause_button.gd" id="6_nq0si"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_vo6io"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_nq0si"]
+events = [SubResource("InputEventKey_vo6io")]
+
+[node name="HUD" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 27.0
+texture_under = ExtResource("1_ko8bi")
+texture_over = ExtResource("2_qu37h")
+texture_progress = ExtResource("3_vo6io")
+tint_under = Color(0.25, 0.25, 0.25, 1)
+
+[node name="PlayerMenu" parent="." instance=ExtResource("4_nq0si")]
+layout_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 599.0
+offset_right = 639.0
+offset_bottom = 40.0
+toggle_mode = true
+shortcut = SubResource("Shortcut_nq0si")
+texture_normal = ExtResource("5_nq0si")
+texture_pressed = ExtResource("6_ci0c8")
+stretch_mode = 4
+script = ExtResource("6_nq0si")
+
+[connection signal="toggled" from="PauseButton" to="PauseButton" method="_on_toggled"]
