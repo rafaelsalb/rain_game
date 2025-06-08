@@ -15,11 +15,11 @@ func set_index(index) -> void:
 	index = index
 
 
-func set_data(target: Node, health: float, max_health: float) -> void:
+func set_data(target: Combatant, health: float, max_health: float) -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health
 	self.target = target
-	target_button.text = target.name
+	target_button.text = target.combatant_name
 
 
 func _on_target_button_button_up() -> void:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://0rnhkkj1pxc0"]
+[gd_scene load_steps=16 format=3 uid="uid://0rnhkkj1pxc0"]
 
 [ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
 [ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
 [ext_resource type="PackedScene" uid="uid://bla4iekb65ws4" path="res://scenes/levels/outside/outside.tscn" id="2_7qwln"]
 [ext_resource type="PackedScene" uid="uid://bem0cfl6iij6q" path="res://scenes/hud/hud.tscn" id="3_06e7i"]
 [ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="4_5wc3c"]
-[ext_resource type="Shader" uid="uid://cmxvhk6ebshwi" path="res://global_color_overlay.gdshader" id="5_vdl3m"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
 [ext_resource type="PackedScene" uid="uid://dtwdbudt2pek6" path="res://scenes/npc/npc_male_0.tscn" id="8_rtc16"]
 [ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="8_w8nnd"]
@@ -13,10 +12,10 @@
 [ext_resource type="SpriteFrames" uid="uid://cdvkjc6b0pb3p" path="res://scenes/npc/sprite_frames/male_0.tres" id="9_k5add"]
 [ext_resource type="PackedScene" uid="uid://dxpa0b4q6trip" path="res://scenes/item/item.tscn" id="12_cxc8a"]
 [ext_resource type="PackedScene" uid="uid://kwvjy1tsq4cy" path="res://scenes/checkpoint/checkpoint.tscn" id="13_v8kia"]
+[ext_resource type="Script" uid="uid://bcnbm4ox73pq4" path="res://scenes/level_changer/level_changer.gd" id="14_waaau"]
+[ext_resource type="Texture2D" uid="uid://btv7ir3tbcbvu" path="res://assets/portraits/Free 39 Portraits Pixel Art/1 Portraits/Icons_01.png" id="16_aecw7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbfb8"]
-shader = ExtResource("5_vdl3m")
-shader_parameter/color = Color(0.25098, 0.25098, 0.25098, 1)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv00q"]
 
 [node name="TestPlayground" type="Node2D"]
 y_sort_enabled = true
@@ -28,18 +27,8 @@ script = ExtResource("1_eckqs")
 position = Vector2(323, 240)
 health = 50
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="Player"]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Player/CanvasLayer2"]
-visible = false
-material = SubResource("ShaderMaterial_fbfb8")
-offset_right = 640.0
-offset_bottom = 480.0
-
 [node name="Rain" parent="Player" instance=ExtResource("4_5wc3c")]
 position = Vector2(-3, -280)
-rain_strength = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5, 0.5, 0.5, 1)
@@ -48,6 +37,7 @@ color = Color(0.5, 0.5, 0.5, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_cnp8e")
+volume_db = -80.0
 autoplay = true
 
 [node name="HUDCanvasLayer" type="CanvasLayer" parent="."]
@@ -86,3 +76,15 @@ position = Vector2(241, 267)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_v8kia")]
 position = Vector2(350, 300)
+
+[node name="LevelChanger" type="Area2D" parent="."]
+position = Vector2(273, 247)
+script = ExtResource("14_waaau")
+next_level = "uid://dhx2suqre62jw"
+metadata/_custom_type_script = "uid://bcnbm4ox73pq4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelChanger"]
+shape = SubResource("CircleShape2D_pv00q")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelChanger"]
+texture = ExtResource("16_aecw7")

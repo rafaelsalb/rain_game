@@ -53,27 +53,9 @@ func _ready() -> void:
 	$Camera2D.limit_bottom = camera_limits.z
 	$Camera2D.limit_right = camera_limits.w
 
-	print(items_container.get_children())
-
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	$Aim.position = interact_raycast.target_position
-	#print($Camera2D.zoom)
-	#var zoom_factor = self.velocity.length() / SPEED * 0.01 * moving_duration
-	#zoom_factor = clamp(zoom_factor, 0.0, 1.0)
-	#print(zoom_factor)
-	#$Camera2D.zoom = Vector2(
-		#lerp(BASE_ZOOM, 2.0, zoom_factor),
-		#lerp(BASE_ZOOM, 2.0, zoom_factor),
-	#)
-
-
-func _process(_delta: float) -> void:
-	health_bar.value = health
-	if health <= 0:
-		health_bar.value = 0
-	$CanvasLayer.visible = not is_interacting
 
 
 func update_animation(movement_direction) -> void:
@@ -98,6 +80,7 @@ func set_speed(speed: int) -> void:
 
 
 func update_inventory(new_item) -> void:
+	GameState.inventory
 	var icon = ResourceLoader.load("res://resources/item_atlas.tres")
 	icon.set_region(Rect2i(new_item.item_icon * 16, 0, 16, 16))
 	items_container.add_item(new_item.item_name, icon)

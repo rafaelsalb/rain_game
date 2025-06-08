@@ -4,4 +4,5 @@
 load_path = "res://.godot/imported/hover_button_icon.png-625e2f51c701d5cb2b61ac34d8487c4f.ctex"
 
 [resource]
+resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_jixln")

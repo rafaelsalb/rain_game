@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://beehkiwpy7ews"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g26ul"]
+
+[node name="Inventory" type="ItemList"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 10
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g26ul")
+allow_search = false
+max_columns = 4
+icon_mode = 0
+fixed_icon_size = Vector2i(32, 32)

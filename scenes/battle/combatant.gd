@@ -15,10 +15,13 @@ extends Node2D
 
 var hp: int = 100
 var attacks: Array[AttackDTO] = []
+var inventory: Array = []
 
 func _ready():
+	name_label.text = combatant_name
 	animated_sprite.play("idle_front")
 	add_attack("Soco", 10)
+	add_attack("Xingar a mãe", 50)
 
 
 func set_data(sprite_frames: SpriteFrames, combatant_name: String) -> void:
@@ -26,6 +29,10 @@ func set_data(sprite_frames: SpriteFrames, combatant_name: String) -> void:
 	self.combatant_name = combatant_name
 	animated_sprite.sprite_frames = self.sprite_frames
 	name_label.text = self.combatant_name
+
+
+func set_inventory(inventory: Array) -> void:
+	self.inventory = inventory
 
 
 func add_attack(attack_name: String, attack_damage: float):
@@ -43,6 +50,12 @@ func take_damage(damage: float) -> void:
 	self.hp -= damage
 	self.hp = clamp(self.hp, 0, 100)
 	$BloodParticles.emitting = true
+
+
+func heal(amount: float) -> void:
+	self.hp += amount
+	self.hp = clamp(self.hp, 0, 100)
+	$HealParticles.emitting = true
 
 
 func play_random_attack_animation() -> void:

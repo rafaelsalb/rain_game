@@ -10,6 +10,7 @@ signal finished_turn
 @onready var tab_label: Label = details_menu.find_child("TabLabel")
 @onready var attack_menu: Control = details_menu.find_child("AttackMenu")
 @onready var target_menu: Control = details_menu.find_child("TargetMenu")
+@onready var item_menu: Control = details_menu.find_child("ItemMenu")
 
 
 func _ready() -> void:
@@ -65,3 +66,8 @@ func disable_action_buttons() -> void:
 func enable_action_buttons() -> void:
 	for node in get_tree().get_nodes_in_group("action_buttons"):
 		node.disabled = false
+
+
+func player_chose_item(index: int) -> void:
+	emit_signal("player_chose_item", index)
+	emit_signal("finished_turn")

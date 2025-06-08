@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bla4iekb65ws4"]
+[gd_scene load_steps=27 format=4 uid="uid://bla4iekb65ws4"]
 
 [ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="1_ax2pv"]
 [ext_resource type="Script" uid="uid://griyqivlhs8f" path="res://scenes/levels/outside/outside.gd" id="1_glbps"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://biqyeosjnbxwe" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Plant.png" id="9_17p1k"]
 [ext_resource type="TileSet" uid="uid://g2qogkkp7omg" path="res://resources/tilesets/outside.tres" id="10_hyf1m"]
 [ext_resource type="PackedScene" uid="uid://d3y8ax4en3eb7" path="res://scenes/level_changer/level_changer.tscn" id="12_k7ev4"]
-[ext_resource type="PackedScene" uid="uid://bu3iu845ve22p" path="res://scenes/cutscenes/oracle/OracleCutscene.tscn" id="13_cyops"]
 [ext_resource type="Texture2D" uid="uid://cy0lgc8aybpix" path="res://assets/tiles/transparent.png" id="14_cyops"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3bt3"]
@@ -1831,7 +1830,7 @@ texture = ExtResource("14_cyops")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0x8oa")
 
-[node name="Outside" type="Node2D" groups=["battle_manager", "camera_limiter"]]
+[node name="Outside" type="Node2D" groups=["camera_limiter"]]
 y_sort_enabled = true
 script = ExtResource("1_glbps")
 
@@ -1855,7 +1854,6 @@ collision_visibility_mode = 1
 
 [node name="LevelChanger" parent="TileMap" instance=ExtResource("12_k7ev4")]
 position = Vector2(687, 0)
-next_level = ExtResource("13_cyops")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/LevelChanger"]
 position = Vector2(-7, -5)

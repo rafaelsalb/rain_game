@@ -4,4 +4,6 @@
 [ext_resource type="Script" uid="uid://b0l8r2krcfc4e" path="res://scenes/battle/ui/attack_button.gd" id="2_xipey"]
 
 [node name="AttackButton" instance=ExtResource("1_xhlqk")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("2_xipey")

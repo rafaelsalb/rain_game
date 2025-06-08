@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhx2suqre62jw"]
+[gd_scene load_steps=19 format=3 uid="uid://dhx2suqre62jw"]
 
 [ext_resource type="Texture2D" uid="uid://bet3jaux8ymkp" path="res://assets/UI/Combat/panel.png" id="1_7gynk"]
 [ext_resource type="Script" uid="uid://dxqd3mjuaqlon" path="res://scenes/battle/battle.gd" id="1_fh7rg"]
@@ -8,14 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="5_fh7rg"]
 [ext_resource type="Script" uid="uid://cofnubq1him7i" path="res://scenes/battle/ui/attack_menu.gd" id="6_pll4o"]
 [ext_resource type="Script" uid="uid://b020ir058qkw" path="res://scenes/battle/target_menu.gd" id="7_agsc7"]
+[ext_resource type="Script" uid="uid://casa7hxtcug2h" path="res://scenes/battle/ui/item_menu.gd" id="8_fisqk"]
+[ext_resource type="PackedScene" uid="uid://beehkiwpy7ews" path="res://scenes/inventory/inventory.tscn" id="8_oiw7q"]
+[ext_resource type="AudioStream" uid="uid://cu8oqy2jb0or1" path="res://assets/music/battle.ogg" id="9_agsc7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jixln"]
 load_path = "res://.godot/imported/hover_button_icon.png-625e2f51c701d5cb2b61ac34d8487c4f.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_py4tk"]
-resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_jixln")
-region = Rect2(0, 0, 16, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_agsc7"]
 resource_local_to_scene = true
@@ -52,73 +50,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(443, 200)]
-}
-
-[sub_resource type="Animation" id="Animation_fisqk"]
-resource_name = "player_attack"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(183, 200), Vector2(320, 200), Vector2(320, 200), Vector2(183, 200)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Characters/Player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_random_attack_animation"
-}]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Characters/Player")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": ["walk_side", true],
-"method": &"update_animation"
-}, {
-"args": ["idle_front", false],
-"method": &"update_animation"
-}, {
-"args": ["walk_side", false],
-"method": &"update_animation"
-}, {
-"args": ["idle_front", false],
-"method": &"update_animation"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"execute_turn"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_py4tk"]
@@ -185,6 +116,73 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"play_random_attack_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fisqk"]
+resource_name = "player_attack"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Characters/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(183, 200), Vector2(320, 200), Vector2(320, 200), Vector2(183, 200)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Characters/Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random_attack_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Characters/Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": ["walk_side", true],
+"method": &"update_animation"
+}, {
+"args": ["idle_front", false],
+"method": &"update_animation"
+}, {
+"args": ["walk_side", false],
+"method": &"update_animation"
+}, {
+"args": ["idle_front", false],
+"method": &"update_animation"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"execute_turn"
 }]
 }
 
@@ -272,16 +270,11 @@ layout_mode = 2
 [node name="AttackButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" groups=["action_buttons"] instance=ExtResource("3_pll4o")]
 layout_mode = 2
 text = "Atacar"
-icon = SubResource("AtlasTexture_py4tk")
+icon = SubResource("AtlasTexture_agsc7")
 
 [node name="ItemButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" groups=["action_buttons"] instance=ExtResource("3_pll4o")]
 layout_mode = 2
 text = "Item"
-icon = SubResource("AtlasTexture_agsc7")
-
-[node name="FleeButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" groups=["action_buttons"] instance=ExtResource("3_pll4o")]
-layout_mode = 2
-text = "Fugir"
 icon = SubResource("AtlasTexture_oiw7q")
 
 [node name="DetailsMenu" type="NinePatchRect" parent="HUD/BattleUI"]
@@ -314,12 +307,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
+theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
 [node name="AttackMenu" type="GridContainer" parent="HUD/BattleUI/DetailsMenu/MarginContainer" groups=["battle_menus"]]
-visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
@@ -333,13 +325,24 @@ theme_override_constants/v_separation = 24
 columns = 2
 script = ExtResource("7_agsc7")
 
+[node name="ItemMenu" type="GridContainer" parent="HUD/BattleUI/DetailsMenu/MarginContainer" groups=["battle_menus"]]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+script = ExtResource("8_fisqk")
+
+[node name="Inventory" parent="HUD/BattleUI/DetailsMenu/MarginContainer/ItemMenu" instance=ExtResource("8_oiw7q")]
+layout_mode = 2
+
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Player" parent="Characters" groups=["combatants", "friends"] instance=ExtResource("5_fh7rg")]
 position = Vector2(183, 200)
+combatant_name = "Desgraçado"
 
 [node name="Enemy" parent="Characters" groups=["combatants", "foes"] instance=ExtResource("5_fh7rg")]
 position = Vector2(443, 200)
+combatant_name = "Maldito"
 
 [node name="PrepareUITimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -351,6 +354,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_icoan")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_agsc7")
+volume_db = -12.0
+
 [connection signal="button_up" from="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer/AttackButton" to="HUD/BattleUI" method="_on_attack_button_button_up"]
+[connection signal="item_activated" from="HUD/BattleUI/DetailsMenu/MarginContainer/ItemMenu/Inventory" to="HUD/BattleUI/DetailsMenu/MarginContainer/ItemMenu" method="_on_inventory_item_activated"]
 [connection signal="timeout" from="PrepareUITimer" to="." method="_on_prepare_ui_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

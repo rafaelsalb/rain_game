@@ -44,9 +44,3 @@ func _on_change_to_blue():
 
 func _on_speed_changed(speed: int):
 	player.set_speed(speed)
-
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_pressed("switch_debug_mode"):
-		DEBUG_MODE = not DEBUG_MODE
-		$HUDCanvasLayer/DebugHUD.visible = DEBUG_MODE
