@@ -44,3 +44,7 @@ func unpause() -> void:
 func sync_stats() -> void:
 	var stats = player.get_stats()
 	main_menu.update_stats(stats)
+
+
+func set_volume(volume: int) -> void:
+	AudioManager.set_volume(volume)

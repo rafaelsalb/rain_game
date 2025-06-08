@@ -66,6 +66,7 @@ animation = &"idle_front"
 [node name="NPC3" parent="." instance=ExtResource("8_rtc16")]
 position = Vector2(388, 204)
 dialog = "res://dialogs/example_2.json"
+walk_around = true
 
 [node name="NPC" parent="." instance=ExtResource("8_rtc16")]
 position = Vector2(256, 206)

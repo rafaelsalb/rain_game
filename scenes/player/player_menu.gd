@@ -3,6 +3,7 @@ extends Panel
 
 @onready var main_menu = find_child("MainMenu")
 @onready var inventory_menu = find_child("InventoryMenu")
+@onready var options_menu = find_child("OptionsMenu")
 
 @onready var stats: Control = find_child("StatsVBoxContainer")
 @onready var health_label: Control = stats.find_child("HealthCountLabel")
@@ -10,9 +11,20 @@ extends Panel
 
 func _ready() -> void:
 	self.visible = false
-	main_menu.visible = true
-	inventory_menu.visible = false
+	back_to_main_menu()
 	UIEventBus.sync_stats()
+
+
+func go_to_inventory_menu() -> void:
+	main_menu.visible = false
+	inventory_menu.visible = true
+	options_menu.visible = false
+
+
+func go_to_options_menu() -> void:
+	main_menu.visible = false
+	inventory_menu.visible = false
+	options_menu.visible = true
 
 
 func _on_quit_button_button_up() -> void:
@@ -22,6 +34,7 @@ func _on_quit_button_button_up() -> void:
 func back_to_main_menu() -> void:
 	main_menu.visible = true
 	inventory_menu.visible = false
+	options_menu.visible = false
 
 
 func _on_close_button_button_up() -> void:
@@ -38,3 +51,7 @@ func _on_inventory_button_button_up() -> void:
 
 func update_stats(stats: Dictionary) -> void:
 	health_label.update(stats["health"], 100)
+
+
+func _on_options_button_button_up() -> void:
+	go_to_options_menu()

@@ -1,0 +1,35 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://1lgwer0pe20s"]
+
+[ext_resource type="Texture2D" uid="uid://c3o4bwir6eeyw" path="res://assets/prototype/Assets/Prototype_Character/Prototype_Character_White.png" id="1_lm7py"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh7rg"]
+atlas = ExtResource("1_lm7py")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pll4o"]
+atlas = ExtResource("1_lm7py")
+region = Rect2(32, 32, 32, 32)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh7rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pll4o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}]

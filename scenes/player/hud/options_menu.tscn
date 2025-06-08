@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://060i5483b16j"]
+
+[ext_resource type="Script" uid="uid://dhuvl7qwwfxa1" path="res://scenes/player/hud/options_menu.gd" id="1_cugaa"]
+[ext_resource type="AudioStream" uid="uid://d2gduleubis54" path="res://assets/RPG_Essentials_Free/10_UI_Menu_SFX/001_Hover_01.wav" id="2_c2mb8"]
+[ext_resource type="Texture2D" uid="uid://bc6nyby7rgc0v" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonArrow01a.png" id="3_mxwqh"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -480.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cugaa")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+dragging_enabled = false
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="VSplitContainer"]
+layout_mode = 2
+text = "Opções"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="VSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+horizontal_alignment = 2
+
+[node name="VolumeSlider" type="HSlider" parent="VSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+value = 100.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_c2mb8")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+layout_mode = 0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_mxwqh")
+flip_h = true
+
+[connection signal="drag_ended" from="VSplitContainer/VBoxContainer/HBoxContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="button_up" from="QuitButton" to="." method="_on_quit_button_button_up"]

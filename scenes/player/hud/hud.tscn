@@ -41,6 +41,7 @@ layout_mode = 0
 offset_left = 599.0
 offset_right = 639.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 toggle_mode = true
 shortcut = SubResource("Shortcut_nq0si")
 texture_normal = ExtResource("5_nq0si")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2ct3sl38xmiu"]
+[gd_scene load_steps=10 format=3 uid="uid://c2ct3sl38xmiu"]
 
 [ext_resource type="Script" uid="uid://day2bfuyf2yao" path="res://scenes/player/player.gd" id="1_j2q2e"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="3_lvxji"]
+[ext_resource type="SpriteFrames" uid="uid://b4rqrv30bg4m2" path="res://resources/sprite_frames/player_animated_frames.tres" id="4_0owmy"]
 [ext_resource type="Texture2D" uid="uid://br7qnlux18d2y" path="res://assets/action_aim.png" id="4_frasq"]
 [ext_resource type="PackedScene" uid="uid://cge4x4ms5ouwr" path="res://scenes/player/hud/hud.tscn" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://ux4qkdnqelg0" path="res://assets/light.png" id="5_eepd0"]
@@ -43,6 +44,8 @@ texture = ExtResource("4_frasq")
 
 [node name="AnimatedSprite2D" parent="." instance=ExtResource("3_lvxji")]
 position = Vector2(0, 12)
+sprite_frames = ExtResource("4_0owmy")
+animation = &"walk_up"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)

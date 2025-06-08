@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddtk4jqnjrumx"]
+
+[ext_resource type="PackedScene" uid="uid://cia4yvitsre6c" path="res://scenes/battle/ui/icon_button.tscn" id="1_xhlqk"]
+[ext_resource type="Script" uid="uid://b0l8r2krcfc4e" path="res://scenes/battle/ui/attack_button.gd" id="2_xipey"]
+
+[node name="AttackButton" instance=ExtResource("1_xhlqk")]
+script = ExtResource("2_xipey")

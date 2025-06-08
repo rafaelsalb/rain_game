@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://3564isxovrhl"]
+[gd_scene load_steps=9 format=3 uid="uid://3564isxovrhl"]
 
 [ext_resource type="Script" uid="uid://cixl8tfo0k3mt" path="res://scenes/player/player_menu.gd" id="1_4uo60"]
+[ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="1_icpbw"]
 [ext_resource type="PackedScene" uid="uid://cwy6f6pw0h25n" path="res://scenes/player/hud/inventory_menu.tscn" id="2_3cec4"]
 [ext_resource type="Script" uid="uid://b722j2t0078v0" path="res://scenes/player/hud/health_count_label.gd" id="2_rkdjx"]
 [ext_resource type="Texture2D" uid="uid://msdwqkuuj20u" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01a.png" id="2_xwxel"]
 [ext_resource type="Texture2D" uid="uid://d11aiwg3d3lhm" path="res://resources/atlas/Male1_atlas.tres" id="3_g26ul"]
+[ext_resource type="PackedScene" uid="uid://060i5483b16j" path="res://scenes/player/hud/options_menu.tscn" id="5_o0cw4"]
+
+[sub_resource type="Theme" id="Theme_3h3x0"]
+default_font = ExtResource("1_icpbw")
 
 [node name="PlayerMenu" type="Panel" groups=["ui_main_menu"]]
 process_mode = 2
@@ -19,6 +24,7 @@ offset_right = 160.0
 offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_3h3x0")
 script = ExtResource("1_4uo60")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -90,11 +96,19 @@ alignment = 1
 layout_mode = 2
 text = "Inventário"
 
+[node name="OptionsButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
+layout_mode = 2
+text = "Opções"
+
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
 layout_mode = 2
 text = "Sair"
 
 [node name="InventoryMenu" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer" instance=ExtResource("2_3cec4")]
+visible = false
+layout_mode = 2
+
+[node name="OptionsMenu" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer" instance=ExtResource("5_o0cw4")]
 visible = false
 layout_mode = 2
 
@@ -108,5 +122,6 @@ texture_normal = ExtResource("2_xwxel")
 stretch_mode = 0
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/InventoryButton" to="." method="_on_inventory_button_button_up"]
+[connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/OptionsButton" to="." method="_on_options_button_button_up"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/QuitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]

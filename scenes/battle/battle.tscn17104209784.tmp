@@ -1,0 +1,217 @@
+[gd_scene load_steps=16 format=3 uid="uid://dhx2suqre62jw"]
+
+[ext_resource type="Texture2D" uid="uid://bet3jaux8ymkp" path="res://assets/UI/Combat/panel.png" id="1_7gynk"]
+[ext_resource type="Script" uid="uid://dxqd3mjuaqlon" path="res://scenes/battle/battle.gd" id="1_fh7rg"]
+[ext_resource type="Script" uid="uid://dv5txttclxi8r" path="res://scenes/battle/ui/battle_ui.gd" id="2_h0kxc"]
+[ext_resource type="PackedScene" uid="uid://cia4yvitsre6c" path="res://scenes/battle/ui/icon_button.tscn" id="3_pll4o"]
+[ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="4_0yh6x"]
+[ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="5_fh7rg"]
+[ext_resource type="Script" uid="uid://cofnubq1him7i" path="res://scenes/battle/ui/attack_menu.gd" id="6_pll4o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jixln"]
+load_path = "res://.godot/imported/hover_button_icon.png-625e2f51c701d5cb2b61ac34d8487c4f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pll4o"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py4tk"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agsc7"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiw7q"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fisqk"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxe8n"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icoan"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_jixln")
+region = Rect2(0, 0, 16, 0)
+
+[node name="Battle" type="Node2D" groups=["battle_manager"]]
+script = ExtResource("1_fh7rg")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.213578, 0.292439, 0.270657, 1)
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BattleUI" type="HBoxContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("2_h0kxc")
+
+[node name="SelectionMenu" type="NinePatchRect" parent="HUD/BattleUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_7gynk")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BattleUI/SelectionMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/BattleUI/SelectionMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="AttackButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+text = "Attack"
+icon = SubResource("AtlasTexture_pll4o")
+
+[node name="ItemButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+text = "Item"
+icon = SubResource("AtlasTexture_py4tk")
+
+[node name="FleeButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+text = "Fugir"
+icon = SubResource("AtlasTexture_agsc7")
+
+[node name="DetailsMenu" type="NinePatchRect" parent="HUD/BattleUI"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource("1_7gynk")
+region_rect = Rect2(0, 0, 24, 24)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="TabLabel" type="Label" parent="HUD/BattleUI/DetailsMenu"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 410.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_0yh6x")
+text = "Attack"
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/BattleUI/DetailsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="AttackMenu" type="GridContainer" parent="HUD/BattleUI/DetailsMenu/MarginContainer" groups=["battle_menus"]]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 2
+script = ExtResource("6_pll4o")
+
+[node name="AttackButton1" parent="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"WithBackground"
+icon = SubResource("AtlasTexture_oiw7q")
+
+[node name="AttackButton2" parent="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = SubResource("AtlasTexture_fisqk")
+
+[node name="AttackButton3" parent="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = SubResource("AtlasTexture_mxe8n")
+
+[node name="AttackButton4" parent="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" instance=ExtResource("3_pll4o")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = SubResource("AtlasTexture_icoan")
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Player" parent="Characters" groups=["combatant"] instance=ExtResource("5_fh7rg")]
+position = Vector2(183, 200)
+
+[node name="Player2" parent="Characters" groups=["combatant"] instance=ExtResource("5_fh7rg")]
+position = Vector2(443, 200)
+
+[connection signal="button_up" from="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer/AttackButton" to="HUD/BattleUI" method="_on_attack_button_button_up"]
+[connection signal="button_up" from="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu/AttackButton1" to="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" method="_on_attack_button_1_button_up"]
+[connection signal="button_up" from="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu/AttackButton2" to="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" method="_on_attack_button_2_button_up"]
+[connection signal="button_up" from="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu/AttackButton3" to="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" method="_on_attack_button_3_button_up"]
+[connection signal="button_up" from="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu/AttackButton4" to="HUD/BattleUI/DetailsMenu/MarginContainer/AttackMenu" method="_on_attack_button_4_button_up"]

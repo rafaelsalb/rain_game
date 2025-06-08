@@ -21,6 +21,7 @@ LevelManager="*res://level_manager.gd"
 EnvironmentVars="*res://environment.gd"
 UIEventBus="*res://scenes/ui_event_bus/ui_event_bus.gd"
 Cursors="*res://scenes/cursor/cursors.gd"
+AudioManager="*res://scenes/audio_manager/audio_manager.gd"
 
 [display]
 
@@ -35,6 +36,7 @@ mouse_cursor/custom_image="uid://d0klsj8k6caal"
 
 battle_manager="Can handle battle signals."
 ui_main_menu=""
+battle_menus=""
 
 [input]
 

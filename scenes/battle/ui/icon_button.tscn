@@ -1,0 +1,38 @@
+[gd_scene load_steps=12 format=3 uid="uid://cia4yvitsre6c"]
+
+[ext_resource type="Texture2D" uid="uid://c8be15byspaij" path="res://assets/UI/Combat/button_icon_deselected.png" id="1_vcxvo"]
+[ext_resource type="Texture2D" uid="uid://bc6nyby7rgc0v" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonArrow01a.png" id="2_dloj6"]
+[ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="3_shgm3"]
+[ext_resource type="Script" uid="uid://cuchw2ej1jh5d" path="res://scenes/battle/ui/icon_button.gd" id="5_6lrs2"]
+[ext_resource type="Texture2D" uid="uid://dhqe4xkyqjh4o" path="res://resources/atlas/hover_button_icon_atlas.tres" id="5_shgm3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xd4uy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_py4tk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pll4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_shgm3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fh7rg"]
+
+[sub_resource type="Theme" id="Theme_pll4o"]
+default_font = ExtResource("3_shgm3")
+Button/icons/icon = ExtResource("1_vcxvo")
+Button/icons/selected = ExtResource("2_dloj6")
+Button/styles/disabled = SubResource("StyleBoxEmpty_xd4uy")
+Button/styles/focus = SubResource("StyleBoxEmpty_py4tk")
+Button/styles/hover = SubResource("StyleBoxEmpty_pll4o")
+Button/styles/normal = SubResource("StyleBoxEmpty_shgm3")
+Button/styles/pressed = SubResource("StyleBoxEmpty_fh7rg")
+
+[node name="IconButton" type="Button"]
+theme = SubResource("Theme_pll4o")
+theme_override_font_sizes/font_size = 24
+text = "Button"
+icon = ExtResource("5_shgm3")
+alignment = 0
+script = ExtResource("5_6lrs2")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -8,7 +8,6 @@ extends Control
 func _on_quit_button_button_up() -> void:
 	self.visible = false
 	UIEventBus.back_to_main_menu()
-	print("sunaothuenaot")
 
 
 func _on_inventory_item_activated(index: int) -> void:
