@@ -1,0 +1,9 @@
+{
+	"default": [
+		{
+			"speaker": "Telos",
+			"text": "Pode ser que eu encontre itens escondidos pelo mapa. Seria uma boa ideia explorar a região. Pode ser que eu precise desse equipamento...",
+			"portrait": "res://assets/portraits/game/player.png",
+		}
+	]
+}

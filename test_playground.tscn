@@ -1,9 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://0rnhkkj1pxc0"]
+[gd_scene load_steps=13 format=3 uid="uid://0rnhkkj1pxc0"]
 
 [ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
-[ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
 [ext_resource type="PackedScene" uid="uid://bla4iekb65ws4" path="res://scenes/levels/outside/outside.tscn" id="2_7qwln"]
-[ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="4_5wc3c"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
 [ext_resource type="PackedScene" uid="uid://dtwdbudt2pek6" path="res://scenes/npc/npc_male_0.tscn" id="8_rtc16"]
 [ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="8_w8nnd"]
@@ -21,13 +19,6 @@ y_sort_enabled = true
 script = ExtResource("1_eckqs")
 
 [node name="Outside" parent="." instance=ExtResource("2_7qwln")]
-
-[node name="Player" parent="." instance=ExtResource("1_efdqg")]
-position = Vector2(323, 240)
-health = 50
-
-[node name="Rain" parent="Player" instance=ExtResource("4_5wc3c")]
-position = Vector2(-3, -280)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.5, 0.5, 0.5, 1)
@@ -71,7 +62,6 @@ position = Vector2(241, 267)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_v8kia")]
 position = Vector2(350, 300)
-input_pickable = true
 
 [node name="LevelChanger" type="Area2D" parent="."]
 position = Vector2(273, 247)

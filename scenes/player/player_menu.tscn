@@ -104,7 +104,9 @@ text = "Opções"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
 layout_mode = 2
-text = "Sair"
+text = "Sair para a área de trabalho"
+autowrap_mode = 2
+clip_text = true
 
 [node name="InventoryMenu" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer" instance=ExtResource("2_3cec4")]
 visible = false

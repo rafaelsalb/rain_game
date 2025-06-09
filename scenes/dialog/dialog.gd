@@ -17,19 +17,26 @@ var progress = 0
 @onready var character_box = $CanvasLayer/Control/Background/CharacterName
 @onready var character_image = $CanvasLayer/Control/Background/CharacterPortrait
 @onready var text_box = $CanvasLayer/Control/Background/DialogText
+@onready var input_prompt_hint = find_child("InputPromptHint")
 
 
 func _ready() -> void:
 	audio_player.stream = voice
 	character_box.text = character_name
 	character_image.texture = character_portrait
+	GameState.freeze_player()
+	input_prompt_hint.visible = false
+	connect("dialog_finished", GameState.on_dialog_finished)
 
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("pass_dialog"):
 		if not finished:
-			progress = len(dialog_text) - 2
+			#progress = len(dialog_text) - 2
+			pass
 		else:
+			print("unfreezing player")
+			GameState.unfreeze_player()
 			emit_signal("dialog_finished")
 			queue_free()
 
@@ -40,15 +47,16 @@ func _process(_delta: float) -> void:
 
 func render_text():
 	if progress < len(dialog_text):
-		if not frame_count % 2:
+		if not frame_count % 3:
 			progress += 1
 			text_box.text = dialog_text.substr(0, progress)
-			if not progress % 4:
+			if not progress % 5:
 				audio_player.pitch_scale = 1.0 + randfn(0.0, 0.25)
 				audio_player.playing = true
 		frame_count += 1
 	else:
 		finished = true
+		input_prompt_hint.visible = true
 
 
 func _on_text_draw_clock_timeout() -> void:

@@ -1,6 +1,6 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dhqe4xkyqjh4o"]
 
-[ext_resource type="Texture2D" uid="uid://chflil1c8pbu8" path="res://assets/UI/hover_button_icon.png" id="1_e7pph"]
+[ext_resource type="Texture2D" uid="uid://dk42xh87ymcgp" path="res://assets/UI/hover_button_icon.png" id="1_e7pph"]
 
 [resource]
 resource_local_to_scene = true

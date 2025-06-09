@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cge4x4ms5ouwr"]
+[gd_scene load_steps=21 format=3 uid="uid://cge4x4ms5ouwr"]
 
 [ext_resource type="Script" uid="uid://dst3xrgas6d83" path="res://scenes/player/hud/hud.gd" id="1_ci0c8"]
 [ext_resource type="Texture2D" uid="uid://ynbqfbo4v1xd" path="res://assets/UI/health_bar.png" id="1_ko8bi"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cnk7ndxoslkal" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ToggleLeftOn01a.png" id="6_ci0c8"]
 [ext_resource type="Script" uid="uid://c50j5vm7y33gj" path="res://scenes/player/hud/pause_button.gd" id="6_nq0si"]
 [ext_resource type="Shader" uid="uid://bw567qd3lv0s6" path="res://scenes/player/hud/new_item_notification.gdshader" id="6_qck7d"]
+[ext_resource type="Shader" uid="uid://bhfjp35cbetqp" path="res://scenes/player/hud/tutorial_indicator.gdshader" id="11_jflhp"]
+[ext_resource type="Texture2D" uid="uid://b82s6qs0heot" path="res://assets/UI/tutorial_indicator.png" id="12_jflhp"]
+[ext_resource type="Texture2D" uid="uid://bnisisc1eoibe" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0086.png" id="13_2imlo"]
+[ext_resource type="Texture2D" uid="uid://drp7ntu64hw6v" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0120.png" id="14_mxcgi"]
+[ext_resource type="Texture2D" uid="uid://bufn1ksiawq6e" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0121.png" id="15_wnypu"]
+[ext_resource type="Texture2D" uid="uid://dhhbe3n6srxmf" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0122.png" id="16_n1yms"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2ei6i"]
 shader = ExtResource("6_qck7d")
@@ -20,6 +26,9 @@ keycode = 4194305
 
 [sub_resource type="Shortcut" id="Shortcut_nq0si"]
 events = [SubResource("InputEventKey_vo6io")]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qyxei"]
+shader = ExtResource("11_jflhp")
 
 [node name="HUD" type="Control"]
 process_mode = 3
@@ -43,6 +52,7 @@ tint_under = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("5_2ei6i")
 
 [node name="PlayerMenu" parent="." instance=ExtResource("4_nq0si")]
+visible = false
 layout_mode = 1
 
 [node name="NewItemNotification" type="ColorRect" parent="."]
@@ -65,5 +75,66 @@ texture_normal = ExtResource("5_nq0si")
 texture_pressed = ExtResource("6_ci0c8")
 stretch_mode = 4
 script = ExtResource("6_nq0si")
+
+[node name="TutorialIndicator" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_qyxei")
+position = Vector2(620, 57)
+scale = Vector2(2, 2)
+texture = ExtResource("12_jflhp")
+
+[node name="KeybindingsTutorial" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_left = -43.0
+offset_right = 92.0
+offset_bottom = 116.0
+
+[node name="WalkLabel" type="Label" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Andar"
+
+[node name="W" type="TextureRect" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 30.0
+offset_right = 45.0
+offset_bottom = 70.0
+texture = ExtResource("13_2imlo")
+
+[node name="A" type="TextureRect" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_left = -29.0
+offset_top = 66.0
+offset_right = 11.0
+offset_bottom = 106.0
+texture = ExtResource("14_mxcgi")
+
+[node name="S" type="TextureRect" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 66.0
+offset_right = 45.0
+offset_bottom = 106.0
+texture = ExtResource("15_wnypu")
+
+[node name="D" type="TextureRect" parent="KeybindingsTutorial"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 66.0
+offset_right = 80.0
+offset_bottom = 106.0
+texture = ExtResource("16_n1yms")
 
 [connection signal="toggled" from="PauseButton" to="PauseButton" method="_on_toggled"]

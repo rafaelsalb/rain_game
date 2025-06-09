@@ -1,7 +1,9 @@
+class_name DialogManager
 extends Node
 
 
 signal dialog_finished
+signal dialog_finished_completely
 
 
 @export_file var dialog_file_path = "res://dialogs/example.json"
@@ -15,6 +17,7 @@ var root: Node
 
 
 func next_line() -> bool:
+	print("next_line ", current_line, " lines ", lines)
 	if current_line < len(lines):
 		var portrait_path = lines[current_line].get("portrait")
 		var speaker = lines[current_line].get("speaker")
@@ -30,12 +33,15 @@ func next_line() -> bool:
 		current_line += 1
 		return true
 	else:
+		print("ended")
 		return false
 
 
 func _on_dialog_finished():
+	print("_on_dialog_finished")
 	if not next_line():
 		current_line = 0
+		emit_signal("dialog_finished_completely")
 	emit_signal("dialog_finished")
 
 

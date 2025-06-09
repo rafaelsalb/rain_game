@@ -1,0 +1,9 @@
+{
+	"default": [
+		{
+			"speaker": "Telos",
+			"text": "Essa região é perigosa à noite, então preciso tomar cuidado. Ladrões e rebeldes vagam pelas redondezas.",
+			"portrait": "res://assets/portraits/game/player.png",
+		}
+	]
+}
