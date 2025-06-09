@@ -70,7 +70,7 @@ func update_animation(animation_name: String, flip_h: bool) -> void:
 # intended for enemy use only
 func choose_random_attack() -> void:
 	var turn = battle_manager.get_current_turn()
-	var action = Action.new()
+	var action = AttackAction.new()
 	var i = randi_range(0, len(attacks) - 1)
 	action.action = attacks[i]
 	turn.action = action

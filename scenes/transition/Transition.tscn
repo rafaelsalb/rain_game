@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://daep6trkdd575"]
+
+[ext_resource type="Script" uid="uid://bi5yd0prfgfxn" path="res://scenes/transition/transition.gd" id="1_al60y"]
+[ext_resource type="Shader" uid="uid://dakutbhu2smm5" path="res://scenes/transition/transition.gdshader" id="1_be6fi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_al60y"]
+resource_local_to_scene = true
+shader = ExtResource("1_be6fi")
+shader_parameter/progress = 0.0
+shader_parameter/fade_color = Color(0, 0, 0, 1)
+shader_parameter/noise_scale = 8.0
+
+[node name="Transition" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_al60y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_al60y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

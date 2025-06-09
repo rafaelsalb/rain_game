@@ -1,6 +1,9 @@
 extends Node
 
 
+signal dialog_finished
+
+
 @export_file var dialog_file_path = "res://dialogs/example.json"
 
 var current_line: int = 0
@@ -33,7 +36,7 @@ func next_line() -> bool:
 func _on_dialog_finished():
 	if not next_line():
 		current_line = 0
-
+	emit_signal("dialog_finished")
 
 
 func start_dialog(asker: Node, dialog_file_path: String, from: int) -> void:

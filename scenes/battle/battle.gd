@@ -11,6 +11,11 @@ var ended: bool = false
 @onready var battle_ui: Control = find_child("BattleUI")
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var victory_audio_stream_player: AudioStreamPlayer = $VictoryAudioStreamPlayer
+@onready var defeat_audio_stream_player: AudioStreamPlayer = $DefeatAudioStreamPlayer
+@onready var result_container: Control = find_child("ResultContainer")
+@onready var victory_container: Control = find_child("VictoryContainer")
+@onready var defeat_container: Control = find_child("DefeatContainer")
 
 
 func _ready():
@@ -92,13 +97,26 @@ func battle_ended() -> void:
 
 
 func player_won() -> void:
-	#animation_player.play("victory")
-	print("vencemo porra")
+	result_container.visible = true
+	victory_container.visible = true
+	audio_stream_player.stop()
+	victory_audio_stream_player.play()
 
 
 func player_lost() -> void:
-	print("fudeu")
+	result_container.visible = true
+	defeat_container.visible = true
+	audio_stream_player.stop()
+	defeat_audio_stream_player.play()
 
 
 func get_player() -> Node:
 	return friends[0]
+
+
+func _on_victory_button_button_up() -> void:
+	LevelManager.change_scene(next_scene)
+
+
+func _on_defeat_button_button_up() -> void:
+	LevelManager.go_to_last_checkpoint()

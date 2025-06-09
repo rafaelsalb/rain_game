@@ -28,7 +28,7 @@ func add_attacks(attacks: Array[AttackDTO]) -> void:
 func _on_attack_button_up(attack) -> Callable:
 	var f = func ():
 		var turn = battle_manager.get_current_turn()
-		var action = Action.new()
+		var action = AttackAction.new()
 		action.action = attack
 		turn.action = action
 		emit_signal("chose_attack")

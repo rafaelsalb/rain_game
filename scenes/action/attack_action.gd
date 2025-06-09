@@ -1,8 +1,5 @@
-class_name Action
-extends Node
-
-
-@export var action: AttackDTO
+class_name AttackAction
+extends Action
 
 
 func execute(target: Combatant) -> void:

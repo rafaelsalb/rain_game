@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://df8wlu5htu1w2"]
+[gd_scene load_steps=4 format=3 uid="uid://djh070nobpnlh"]
 
 [ext_resource type="Texture2D" uid="uid://d0mq0sidcnlgw" path="res://assets/portraits/prototype/default.png" id="1_da60a"]
 [ext_resource type="Script" uid="uid://ci0roua776314" path="res://scenes/dialog/dialog.gd" id="1_fmfh2"]

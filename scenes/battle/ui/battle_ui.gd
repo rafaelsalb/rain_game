@@ -23,7 +23,7 @@ func build_attack_menu(player_attacks: Array[AttackDTO]) -> void:
 
 func show_combatants() -> void:
 	hide_all_battle_menus()
-	tab_label.text = "Combatentes"
+	tab_label.text = ""
 
 
 func show_attack_menu() -> void:
@@ -49,6 +49,12 @@ func show_target_menu() -> void:
 	target_menu.visible = true
 
 
+func show_item_menu() -> void:
+	hide_all_battle_menus()
+	tab_label.text = "Itens"
+	item_menu.visible = true
+
+
 func player_chose_attack() -> void:
 	show_target_menu()
 
@@ -69,5 +75,9 @@ func enable_action_buttons() -> void:
 
 
 func player_chose_item(index: int) -> void:
-	emit_signal("player_chose_item", index)
+	hide_all_battle_menus()
 	emit_signal("finished_turn")
+
+
+func _on_item_button_button_up() -> void:
+	show_item_menu()
