@@ -12,18 +12,19 @@ const BASE_ZOOM: float = 3
 var inventory: Array = []
 var is_interacting: bool = false
 
+@onready var HUD = $CanvasLayer/HUD
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var interact_raycast = $InteractRayCast
-@onready var items_container = $CanvasLayer/HUD/PlayerMenu/PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/InventoryMenu/VSplitContainer/Inventory
 @onready var health_bar = $CanvasLayer/HUD/HealthBar
 @onready var step_audio_player = $StepAudioPlayer
 @onready var player_menu = $CanvasLayer/HUD/PlayerMenu
+
+var items_container: Control
+var interact_target: Node
 
 
 func _input(event: InputEvent) -> void:
 	movement_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	self.velocity = SPEED * movement_direction.normalized()
-	interact_raycast.target_position = 16 * movement_direction.normalized()
 	update_animation(movement_direction)
 
 	if not step_audio_player.playing:
@@ -37,12 +38,16 @@ func _input(event: InputEvent) -> void:
 		change_color(Vector3(0.0, 0.0, 1.0))
 
 	if event.is_action_pressed("interact"):
-		var collider = interact_raycast.get_collider()
-		if collider:
-			collider.interact()
+		if interact_target:
+			if interact_target.has_method("interact"):
+				interact_target.interact()
+			else:
+				print("Interact target does not have an interact method.")
 
 
 func _ready() -> void:
+	items_container = HUD.get_inventory()
+
 	animated_sprite.play("idle_front")
 	change_color(player_character.color)
 	set_speed(50)
@@ -52,6 +57,8 @@ func _ready() -> void:
 	$Camera2D.limit_left = camera_limits.y
 	$Camera2D.limit_bottom = camera_limits.z
 	$Camera2D.limit_right = camera_limits.w
+
+	health_bar.update_health(health)
 
 
 func _physics_process(_delta: float) -> void:
@@ -79,14 +86,12 @@ func set_speed(speed: int) -> void:
 	SPEED = speed
 
 
-func update_inventory(new_item) -> void:
-	GameState.inventory
-	var icon = ResourceLoader.load("res://resources/item_atlas.tres")
-	icon.set_region(Rect2i(new_item.item_icon * 16, 0, 16, 16))
-	items_container.add_item(new_item.item_name, icon)
-	#print(icon)
-	print("Adding new_item to inventory: ", new_item.item_name)
-	print(items_container.get_children())
+func update_inventory() -> void:
+	items_container.clear()
+	for item in inventory:
+		var icon = ResourceLoader.load("res://resources/item_atlas.tres")
+		icon.set_region(Rect2i(item.item_icon * 16, 0, 16, 16))
+		items_container.add_item(item.item_name, icon)
 
 
 func show_notification(message: String) -> void:
@@ -94,19 +99,27 @@ func show_notification(message: String) -> void:
 
 
 func _on_inventory_item_activated(index: int) -> void:
-	items_container.remove_item(index)
-	health += 10
 	var ephemeral_audio_stream_player = EphemeralAudioStreamPlayer.new()
 	add_child(ephemeral_audio_stream_player)
 	ephemeral_audio_stream_player.play_sfx("res://assets/RPG_Essentials_Free/10_UI_Menu_SFX/013_Confirm_03.wav")
+	health += GameState.inventory[index].heal_amount
+	if health > 100:
+		health = 100
+	if health_bar:
+		health_bar.update_health(health)
+	GameState.remove_from_inventory(index)
+	update_inventory()
+	print("health ", health)
 
 
 func show_hud() -> void:
-	$CanvasLayer/HUD/HealthBar.visible = true
+	#$CanvasLayer/HUD/HealthBar.visible = true
+	pass
 
 
 func hide_hud() -> void:
-	$CanvasLayer/HUD/HealthBar.visible = false
+	#$CanvasLayer/HUD/HealthBar.visible = false
+	pass
 
 
 func get_stats() -> Dictionary:
@@ -114,3 +127,9 @@ func get_stats() -> Dictionary:
 		"max_health": 100,
 		"health": health
 	}
+
+
+func got_new_item() -> void:
+	inventory = GameState.inventory
+	print("Inventory updated: ", inventory)
+	update_inventory()

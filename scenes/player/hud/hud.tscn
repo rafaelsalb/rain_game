@@ -1,12 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://cge4x4ms5ouwr"]
+[gd_scene load_steps=14 format=3 uid="uid://cge4x4ms5ouwr"]
 
+[ext_resource type="Script" uid="uid://dst3xrgas6d83" path="res://scenes/player/hud/hud.gd" id="1_ci0c8"]
 [ext_resource type="Texture2D" uid="uid://ynbqfbo4v1xd" path="res://assets/UI/health_bar.png" id="1_ko8bi"]
 [ext_resource type="Texture2D" uid="uid://cthyph14fgom4" path="res://assets/UI/health_bar_progress.png" id="2_qu37h"]
 [ext_resource type="Texture2D" uid="uid://d2stnpbn7vqic" path="res://assets/UI/health_bar_over.png" id="3_vo6io"]
 [ext_resource type="PackedScene" uid="uid://3564isxovrhl" path="res://scenes/player/player_menu.tscn" id="4_nq0si"]
+[ext_resource type="Script" uid="uid://dflpga1vakomv" path="res://scenes/player/hud/health_bar.gd" id="5_2ei6i"]
 [ext_resource type="Texture2D" uid="uid://cyljj3hv31ilh" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ToggleLeftOff01a.png" id="5_nq0si"]
 [ext_resource type="Texture2D" uid="uid://cnk7ndxoslkal" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ToggleLeftOn01a.png" id="6_ci0c8"]
 [ext_resource type="Script" uid="uid://c50j5vm7y33gj" path="res://scenes/player/hud/pause_button.gd" id="6_nq0si"]
+[ext_resource type="Shader" uid="uid://bw567qd3lv0s6" path="res://scenes/player/hud/new_item_notification.gdshader" id="6_qck7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ei6i"]
+shader = ExtResource("6_qck7d")
 
 [sub_resource type="InputEventKey" id="InputEventKey_vo6io"]
 device = -1
@@ -23,8 +29,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ci0c8")
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 240.0
 offset_bottom = 27.0
@@ -32,14 +40,23 @@ texture_under = ExtResource("1_ko8bi")
 texture_over = ExtResource("2_qu37h")
 texture_progress = ExtResource("3_vo6io")
 tint_under = Color(0.25, 0.25, 0.25, 1)
+script = ExtResource("5_2ei6i")
 
 [node name="PlayerMenu" parent="." instance=ExtResource("4_nq0si")]
 layout_mode = 1
 
+[node name="NewItemNotification" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_2ei6i")
+layout_mode = 0
+offset_left = 598.0
+offset_right = 640.0
+offset_bottom = 42.0
+color = Color(1, 0.768627, 0, 1)
+
 [node name="PauseButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 599.0
-offset_right = 639.0
+offset_left = 600.0
+offset_right = 640.0
 offset_bottom = 40.0
 mouse_default_cursor_shape = 2
 toggle_mode = true

@@ -1,8 +1,8 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dhqe4xkyqjh4o"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jixln"]
-load_path = "res://.godot/imported/hover_button_icon.png-625e2f51c701d5cb2b61ac34d8487c4f.ctex"
+[ext_resource type="Texture2D" uid="uid://chflil1c8pbu8" path="res://assets/UI/hover_button_icon.png" id="1_e7pph"]
 
 [resource]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_jixln")
+atlas = ExtResource("1_e7pph")
+region = Rect2(0, 0, 16, 16)

@@ -67,6 +67,7 @@ process_mode = 3
 layer = 2
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("5_75vfm")]
+mouse_filter = 1
 
 [node name="StepAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_p47bc")

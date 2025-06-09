@@ -47,6 +47,7 @@ func _on_close_button_button_up() -> void:
 func _on_inventory_button_button_up() -> void:
 	main_menu.visible = false
 	inventory_menu.visible = true
+	main_menu.clear_highlight_inventory_button()
 
 
 func update_stats(stats: Dictionary) -> void:
@@ -55,3 +56,8 @@ func update_stats(stats: Dictionary) -> void:
 
 func _on_options_button_button_up() -> void:
 	go_to_options_menu()
+
+
+func highlight_inventory_button() -> void:
+	print("called highlight from player_menu.gd")
+	main_menu.highlight_inventory_button()

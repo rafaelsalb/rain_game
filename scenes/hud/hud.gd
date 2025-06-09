@@ -43,4 +43,3 @@ func _on_blue_button_up() -> void:
 
 func _on_v_slider_drag_ended(value_changed: bool) -> void:
 	speed_changed.emit(slider.value)
-

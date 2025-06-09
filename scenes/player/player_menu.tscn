@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3564isxovrhl"]
+[gd_scene load_steps=10 format=3 uid="uid://3564isxovrhl"]
 
 [ext_resource type="Script" uid="uid://cixl8tfo0k3mt" path="res://scenes/player/player_menu.gd" id="1_4uo60"]
 [ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="1_icpbw"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b722j2t0078v0" path="res://scenes/player/hud/health_count_label.gd" id="2_rkdjx"]
 [ext_resource type="Texture2D" uid="uid://msdwqkuuj20u" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01a.png" id="2_xwxel"]
 [ext_resource type="Texture2D" uid="uid://d11aiwg3d3lhm" path="res://resources/atlas/Male1_atlas.tres" id="3_g26ul"]
+[ext_resource type="Script" uid="uid://dflytxb1udsvy" path="res://scenes/player/hud/main_menu.gd" id="5_3h3x0"]
 [ext_resource type="PackedScene" uid="uid://060i5483b16j" path="res://scenes/player/hud/options_menu.tscn" id="5_o0cw4"]
 
 [sub_resource type="Theme" id="Theme_3h3x0"]
@@ -91,6 +92,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
+script = ExtResource("5_3h3x0")
 
 [node name="InventoryButton" type="Button" parent="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu"]
 layout_mode = 2

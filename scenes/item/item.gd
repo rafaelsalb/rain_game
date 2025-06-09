@@ -14,11 +14,13 @@ extends Area2D
 
 func _on_body_entered(body:Node2D) -> void:
 	if body.is_in_group("player"):
-		var player = body
 		var copy = self.duplicate()
-		player.inventory.append(copy)
-		player.update_inventory(copy)
-		player.show_notification("Você pegou um " + item_name + "!")
+		GameState.add_to_inventory(copy)
+		#var player = body
+		#var copy = self.duplicate()
+		#player.inventory.append(copy)
+		#player.update_inventory(copy)
+		#player.show_notification("Você pegou um " + item_name + "!")
 		var particles = pickup_particles_scene.instantiate()
 		particles.global_position = global_position
 		get_tree().current_scene.add_child(particles)

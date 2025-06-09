@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8r4u52lg6yt0"]
+[gd_scene load_steps=8 format=3 uid="uid://b8r4u52lg6yt0"]
 
 [ext_resource type="Script" uid="uid://dwhxiulumk1ve" path="res://scenes/npc/npc.gd" id="1_pcwmf"]
 [ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="3_dpyoa"]
 [ext_resource type="Script" uid="uid://cuayd58gypx1p" path="res://scenes/npc/dialog_area.gd" id="3_r4bp4"]
+[ext_resource type="Texture2D" uid="uid://dfsilvb76oxdx" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0078.png" id="4_r4bp4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4bp4"]
 size = Vector2(7, 6)
@@ -35,3 +36,10 @@ shape = SubResource("RectangleShape2D_pcwmf")
 [node name="CollisionDetector" type="ShapeCast2D" parent="."]
 shape = SubResource("RectangleShape2D_dpyoa")
 target_position = Vector2(0, 16)
+
+[node name="InteractPrompt" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("4_r4bp4")
+
+[connection signal="mouse_entered" from="DialogArea" to="." method="_on_dialog_area_mouse_entered"]
+[connection signal="mouse_exited" from="DialogArea" to="." method="_on_dialog_area_mouse_exited"]

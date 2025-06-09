@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var collision_detector = $CollisionDetector
 @onready var dialog_spawner = $DialogSpawner
+@onready var interact_prompt = $InteractPrompt
 
 
 const SPEED: float = 25.0
@@ -18,6 +19,15 @@ func _ready() -> void:
 	if animated_sprite:
 		animated_sprite.play("idle_front")
 	dialog_spawner.connect("dialog_finished", self._on_dialog_finished)
+	interact_prompt.visible = false
+
+
+func show_interact_prompt() -> void:
+	interact_prompt.visible = true
+
+
+func hide_interact_prompt() -> void:
+	interact_prompt.visible = false
 
 
 func interact() -> void:
@@ -34,3 +44,14 @@ func _on_dialog_finished():
 
 func start_battle() -> void:
 	LevelManager.change_scene(battle)
+
+
+func _on_dialog_area_mouse_entered() -> void:
+	if GameState.is_within_interaction_range(self):
+		GameState.set_as_interact(self)
+		show_interact_prompt()
+
+
+func _on_dialog_area_mouse_exited() -> void:
+	hide_interact_prompt()
+	GameState.set_as_interact(null)

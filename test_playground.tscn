@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://0rnhkkj1pxc0"]
+[gd_scene load_steps=15 format=3 uid="uid://0rnhkkj1pxc0"]
 
 [ext_resource type="Script" uid="uid://cgwihqo3u34uw" path="res://scenes/game/game.gd" id="1_eckqs"]
 [ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="1_efdqg"]
 [ext_resource type="PackedScene" uid="uid://bla4iekb65ws4" path="res://scenes/levels/outside/outside.tscn" id="2_7qwln"]
-[ext_resource type="PackedScene" uid="uid://bem0cfl6iij6q" path="res://scenes/hud/hud.tscn" id="3_06e7i"]
 [ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="4_5wc3c"]
 [ext_resource type="AudioStream" uid="uid://b8se50wcr3a44" path="res://assets/Essentials_Series_NOX_SOUND/Nature_Essentials_NOX_SOUND/Ambiance_Rain_Calm_Loop_Stereo.wav" id="6_cnp8e"]
 [ext_resource type="PackedScene" uid="uid://dtwdbudt2pek6" path="res://scenes/npc/npc_male_0.tscn" id="8_rtc16"]
@@ -40,11 +39,6 @@ stream = ExtResource("6_cnp8e")
 volume_db = -80.0
 autoplay = true
 
-[node name="HUDCanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DebugHUD" parent="HUDCanvasLayer" instance=ExtResource("3_06e7i")]
-visible = false
-
 [node name="NPC2" parent="." instance=ExtResource("8_w8nnd")]
 position = Vector2(327, 205)
 dialog = "res://dialogs/example.json"
@@ -77,6 +71,7 @@ position = Vector2(241, 267)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_v8kia")]
 position = Vector2(350, 300)
+input_pickable = true
 
 [node name="LevelChanger" type="Area2D" parent="."]
 position = Vector2(273, 247)
