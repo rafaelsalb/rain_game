@@ -2,11 +2,17 @@ class_name OutsideLevel
 extends "res://scenes/levels/Level.gd"
 
 
+signal scene_loaded
+
+
 @export var show_tutorials: bool = true
 @export var start_from_spawnpoint: bool = true
 
 
 func _ready():
+	for node in get_tree().get_nodes_in_group("globals"):
+		connect("scene_loaded", node.reload)
+	emit_signal("scene_loaded")
 	spawn_point = $Spawnpoint.position
 	$AudioStreamPlayer.play()
 	if show_tutorials:

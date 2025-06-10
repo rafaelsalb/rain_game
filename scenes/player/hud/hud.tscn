@@ -52,7 +52,6 @@ tint_under = Color(0.25, 0.25, 0.25, 1)
 script = ExtResource("5_2ei6i")
 
 [node name="PlayerMenu" parent="." instance=ExtResource("4_nq0si")]
-visible = false
 layout_mode = 1
 
 [node name="NewItemNotification" type="ColorRect" parent="."]

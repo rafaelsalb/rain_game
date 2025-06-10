@@ -6,6 +6,9 @@ extends "res://scenes/levels/outside/outside.gd"
 
 
 func _ready() -> void:
+	for node in get_tree().get_nodes_in_group("globals"):
+		connect("scene_loaded", node.reload)
+	emit_signal("scene_loaded")
 	print("limits", CAMERA_LEVEL_LIMITS)
 	if mage:
 		print(mage)

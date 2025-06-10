@@ -1,14 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://d33qdy43qddjh"]
+[gd_scene load_steps=10 format=3 uid="uid://d33qdy43qddjh"]
 
 [ext_resource type="Script" uid="uid://buse8ss4dx10s" path="res://scenes/cutscenes/initial/initial_cutscene.gd" id="1_j5cko"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="2_j5cko"]
 [ext_resource type="PackedScene" uid="uid://cghog27yxkw23" path="res://scenes/npc/ana_sprite.tscn" id="2_qpsya"]
 [ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="3_frq6d"]
 [ext_resource type="AudioStream" uid="uid://bd8a24o3yiv7l" path="res://assets/music/Sketchbook 2024-02-28_02.ogg" id="5_knu47"]
+[ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="6_jbehh"]
+
+[sub_resource type="Animation" id="Animation_knu47"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnaSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(676, 186)]
+}
 
 [sub_resource type="Animation" id="Animation_j5cko"]
 resource_name = "default"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,25 +55,10 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_knu47"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnaSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(676, 186)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jbehh"]
 _data = {
 &"RESET": SubResource("Animation_knu47"),
-&"default": SubResource("Animation_j5cko")
+&"first": SubResource("Animation_j5cko")
 }
 
 [node name="InitialCutscene" type="Node2D"]
@@ -74,6 +75,7 @@ libraries = {
 }
 
 [node name="PlayerSprite" parent="." instance=ExtResource("2_j5cko")]
+visible = false
 position = Vector2(320, 320)
 scale = Vector2(2, 2)
 
@@ -81,10 +83,27 @@ scale = Vector2(2, 2)
 position = Vector2(676, 186)
 scale = Vector2(2, 2)
 
-[node name="DialogManager" type="Node" parent="."]
-script = ExtResource("3_frq6d")
-metadata/_custom_type_script = "uid://cnivxxwkt3nuv"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_knu47")
 autoplay = true
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("3_frq6d")
+
+[node name="DialogSpawner2" type="Node" parent="."]
+script = ExtResource("3_frq6d")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 175.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("6_jbehh")
+text = "Na oficina de Telos..."
+
+[node name="EndCutsceneTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="EndCutsceneTimer" to="." method="_on_end_cutscene_timer_timeout"]

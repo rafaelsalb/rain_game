@@ -25,15 +25,22 @@ func _ready() -> void:
 		connect("got_new_item", player_hud.turn_on_new_item_notification)
 		connect("got_new_item", player.got_new_item)
 		connect("saw_notification", player_hud.turn_off_new_item_notification)
+	else:
+		print("player not present")
+		reload()
 	self.add_to_group("globals")
 
 func reload() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	if player:
+		print("found player in reload")
 		player_hud = player.find_child("HUD")
+		print("player_hud in reload ", player_hud)
 		connect("got_new_item", player_hud.turn_on_new_item_notification)
 		connect("got_new_item", player.got_new_item)
 		connect("saw_notification", player_hud.turn_off_new_item_notification)
+	else:
+		print("player still not present")
 
 func add_to_inventory(item: GameItem) -> void:
 	inventory.append(item)

@@ -1,0 +1,49 @@
+{
+	"default": [
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Telos, gostaríamos de agradecê-lo pelo belo par de anéis.",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Eu é que deveria agradecer. Não sabia muito bem o que estava fazendo nessa Terra até você plantar esse questionamento em mim.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Que questionamento?",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "O porquê de fazermos o que fazemos. Eu estava apenas vivendo, seguindo a rotina, não me importando, não querendo nada.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Entende? O fato de vocês estarem atrás de algo que, nos tempos atuais, não dá qualquer benefício, só por significar algo que vocês acham importante.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Viver uma boa vida enquanto existimos.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Fico feliz por saber. E me perdoe pela crise existencial.",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Mais um serviço cumprido.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Oráculo",
+			"text": "Entendeste, Telos.",
+			"portrait": "assets/portraits/game/oracle.png"
+		}
+	]
+}

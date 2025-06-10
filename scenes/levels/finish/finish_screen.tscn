@@ -1,3 +1,210 @@
-[gd_scene format=3 uid="uid://s3gbjr21aa0q"]
+[gd_scene load_steps=19 format=3 uid="uid://s3gbjr21aa0q"]
+
+[ext_resource type="Script" uid="uid://1nm50a8ummgj" path="res://scenes/levels/finish/finish_screen.gd" id="1_h5sn7"]
+[ext_resource type="PackedScene" uid="uid://cghog27yxkw23" path="res://scenes/npc/ana_sprite.tscn" id="2_bw0u3"]
+[ext_resource type="Texture2D" uid="uid://2vb7i0xhywqh" path="res://assets/NPC_Characters_v1.0/Male2.png" id="3_te8q1"]
+[ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="4_hnijb"]
+[ext_resource type="AudioStream" uid="uid://dqkraxdwpvm5g" path="res://assets/music/Sketchbook 2024-02-28_01.ogg" id="5_ldob3"]
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="6_vbyvk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yixid"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(0, 336, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7md3k"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(32, 336, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c28i"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(64, 336, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_baw8j"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(96, 336, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e51vb"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(128, 288, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdtts"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(160, 288, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl2xr"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(192, 288, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8oc0"]
+atlas = ExtResource("3_te8q1")
+region = Rect2(224, 288, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rg31n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yixid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7md3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c28i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_baw8j")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e51vb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdtts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl2xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8oc0")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 2.0
+}]
+
+[sub_resource type="Animation" id="Animation_h5sn7"]
+resource_name = "default"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Couple:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(680, 160), Vector2(320, 160)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Couple/Ana")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"walk_side", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"idle_front", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Couple/Husband")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"walk_side", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"idle_front", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bw0u3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Couple:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_te8q1"]
+_data = {
+&"RESET": SubResource("Animation_bw0u3"),
+&"default": SubResource("Animation_h5sn7")
+}
 
 [node name="FinishScreen" type="Node2D"]
+script = ExtResource("1_h5sn7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.1, 0.1, 0.1, 1)
+
+[node name="Couple" type="Node2D" parent="."]
+
+[node name="Ana" parent="Couple" instance=ExtResource("2_bw0u3")]
+position = Vector2(20, 0)
+scale = Vector2(2, 2)
+
+[node name="Husband" type="AnimatedSprite2D" parent="Couple"]
+position = Vector2(-18, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_rg31n")
+animation = &"walk_side"
+
+[node name="Telos" parent="." instance=ExtResource("4_hnijb")]
+position = Vector2(320, 320)
+scale = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ldob3")
+autoplay = true
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("6_vbyvk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_te8q1")
+}
+
+[node name="GameOverScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 201.0
+offset_right = 365.0
+offset_bottom = 224.0
+text = "Parabéns!"
+
+[node name="Button" type="Button" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 228.0
+offset_right = 431.0
+offset_bottom = 259.0
+text = "Voltar à área de trabalho"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="button_up" from="GameOverScreen/Button" to="." method="_on_button_button_up"]

@@ -32,8 +32,7 @@ func _ready() -> void:
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("pass_dialog"):
 		if not finished:
-			#progress = len(dialog_text) - 2
-			pass
+			progress = len(dialog_text) - 2
 		else:
 			GameState.unfreeze_player()
 			emit_signal("dialog_finished")

@@ -1875,7 +1875,7 @@ position = Vector2(123, 140)
 forwards = false
 
 [node name="Player" parent="." instance=ExtResource("14_im5s2")]
-position = Vector2(1091, 759)
+position = Vector2(123, 140)
 health = 90
 
 [node name="Rain" parent="Player" instance=ExtResource("15_knhlx")]
