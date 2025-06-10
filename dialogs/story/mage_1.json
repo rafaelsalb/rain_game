@@ -1,0 +1,29 @@
+{
+	"default": [
+		{
+			"speaker": "???",
+			"text": "A jóia não é sua.",
+			"portrait": "assets/portraits/game/mage.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "De onde você veio? Ah, não importa. Este lugar está abandonado. Eu sei que nada aqui tem dono.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "???",
+			"text": "Pode até ser verdade, mas eu almejo esta jóia e por isso você não a terá.",
+			"portrait": "assets/portraits/game/mage.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Eu preciso da jóia e não sairei daqui sem ela. Uma mulher quer se casar e agora isso é problema meu.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Apóleia",
+			"text": "O grande mago Apóleia não cederá seu objetivo por uma razão tão fútil. Sinta a minha fúria!",
+			"portrait": "assets/portraits/game/mage.png"
+		}
+	]
+}

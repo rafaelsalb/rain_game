@@ -12,6 +12,10 @@ var inventory: Array = []
 var player: Node
 var player_hud: Node
 var come_back_scene: String
+var checkpoint: Dictionary = {
+	"scene": "res://scenes/levels/outside/outside.tscn",
+	"inventory": []
+}
 
 
 func _ready() -> void:
@@ -21,7 +25,15 @@ func _ready() -> void:
 		connect("got_new_item", player_hud.turn_on_new_item_notification)
 		connect("got_new_item", player.got_new_item)
 		connect("saw_notification", player_hud.turn_off_new_item_notification)
-	GameState.come_back_scene = "res://scenes/levels/"
+	self.add_to_group("globals")
+
+func reload() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	if player:
+		player_hud = player.find_child("HUD")
+		connect("got_new_item", player_hud.turn_on_new_item_notification)
+		connect("got_new_item", player.got_new_item)
+		connect("saw_notification", player_hud.turn_off_new_item_notification)
 
 func add_to_inventory(item: GameItem) -> void:
 	inventory.append(item)
@@ -84,3 +96,12 @@ func got_gem() -> void:
 	if player_hud:
 		has_gem = true
 		player_hud.got_gem()
+
+func save_checkpoint() -> void:
+	checkpoint["scene"] = LevelManager.current_level
+	while checkpoint["inventory"]:
+		checkpoint["inventory"].pop_back()
+	checkpoint["inventory"].append_array(inventory)
+
+func load_inventory_from_checkpoint() -> void:
+	inventory = checkpoint["inventory"]

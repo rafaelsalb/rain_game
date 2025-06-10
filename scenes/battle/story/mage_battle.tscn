@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpiy3awdbdtfj"]
+[gd_scene load_steps=8 format=3 uid="uid://du1l7fyisxkhb"]
 
-[ext_resource type="PackedScene" uid="uid://dhx2suqre62jw" path="res://scenes/battle/battle.tscn" id="1_qji3b"]
-[ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="2_i0aw5"]
-[ext_resource type="SpriteFrames" uid="uid://b4rqrv30bg4m2" path="res://resources/sprite_frames/player_animated_frames.tres" id="3_i0aw5"]
-[ext_resource type="SpriteFrames" uid="uid://c352gprvqyxky" path="res://scenes/npc/sprite_frames/thief.tres" id="4_i0aw5"]
+[ext_resource type="PackedScene" uid="uid://dhx2suqre62jw" path="res://scenes/battle/battle.tscn" id="1_kih3n"]
+[ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="2_xv55f"]
+[ext_resource type="SpriteFrames" uid="uid://b4rqrv30bg4m2" path="res://resources/sprite_frames/player_animated_frames.tres" id="3_ch0ri"]
+[ext_resource type="SpriteFrames" uid="uid://dl0pe2ypgqgel" path="res://scenes/npc/sprite_frames/mage.tres" id="4_ch0ri"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jixln"]
 load_path = "res://.godot/imported/hover_button_icon.png-625e2f51c701d5cb2b61ac34d8487c4f.ctex"
@@ -18,8 +18,8 @@ resource_local_to_scene = true
 atlas = SubResource("CompressedTexture2D_jixln")
 region = Rect2(0, 0, 16, 0)
 
-[node name="Battle" instance=ExtResource("1_qji3b")]
-next_scene = "uid://b5cfso3exy7by"
+[node name="Battle" instance=ExtResource("1_kih3n")]
+next_scene = "uid://bshbnt46ckpa7"
 
 [node name="AttackButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" index="0"]
 icon = SubResource("AtlasTexture_agsc7")
@@ -27,28 +27,26 @@ icon = SubResource("AtlasTexture_agsc7")
 [node name="ItemButton" parent="HUD/BattleUI/SelectionMenu/MarginContainer/VBoxContainer" index="1"]
 icon = SubResource("AtlasTexture_oiw7q")
 
-[node name="Player" parent="Characters/PlayerPosition" index="0" groups=["friends"] instance=ExtResource("2_i0aw5")]
+[node name="Player" parent="Characters/PlayerPosition" index="0" groups=["friends"] instance=ExtResource("2_xv55f")]
 combatant_name = "Telos"
 attack_list = Dictionary[String, int]({
-"Martelada": 25,
-"Soco": 20
+"Martelada": 20,
+"Soco": 15
 })
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/PlayerPosition/Player" index="4"]
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("3_i0aw5")
+sprite_frames = ExtResource("3_ch0ri")
 animation = &"idle_front"
 
-[node name="Enemy" parent="Characters/EnemyPosition" index="0" groups=["foes"] instance=ExtResource("2_i0aw5")]
-position = Vector2(10, 0)
-combatant_name = "Ladrão"
+[node name="Enemy" parent="Characters/EnemyPosition" index="0" groups=["foes"] instance=ExtResource("2_xv55f")]
+combatant_name = "Apóleia"
 attack_list = Dictionary[String, int]({
-"Chute": 15,
-"Esfaquear": 30
+"Bola de Fogo": 25,
+"Descarga Elétrica": 15
 })
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Characters/EnemyPosition/Enemy" index="4"]
 scale = Vector2(2, 2)
-sprite_frames = ExtResource("4_i0aw5")
+sprite_frames = ExtResource("4_ch0ri")
 animation = &"idle_front"
-frame_progress = 0.42453

@@ -40,4 +40,4 @@ func _on_chat_message_received(message: String) -> void:
 
 
 func _on_quit_button_up() -> void:
-	LevelManager.change_scene(GameState.next_scene)
+	LevelManager.change_scene("res://scenes/levels/temple/temple.tscn")

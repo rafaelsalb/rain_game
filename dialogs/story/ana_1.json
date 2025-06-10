@@ -1,0 +1,54 @@
+{
+	"default": [
+		{
+			"speaker": "???",
+			"text": "Você é Telos, o ferreiro?",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Esse é o meu nome. O que quer?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Sou Ana Zítisi. Quero que faça um par de anéis.",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "E para que fim seriam?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Eu e meu noivo vamos casar e, logicamente, precisamos de um anel.",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "...",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Diga como quer os anéis.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Faça da sua maneira, apenas quero que tenha uma jóia e alguns ornamentos em boa madeira. A ideia é incluir um pouco deste mundo em que vivemos.",
+			"portrait": "assets/portraits/game/ana.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Vai dar um bom trabalho, Sra. Zítisi. Tem certeza?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ana Zítisi",
+			"text": "Tenho. Em alguns dias volto a esta aldeia para buscar os anéis.",
+			"portrait": "assets/portraits/game/ana.png"
+		}
+	]
+}

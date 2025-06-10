@@ -1,3 +1,4 @@
+class_name OutsideLevel
 extends "res://scenes/levels/Level.gd"
 
 
@@ -12,6 +13,8 @@ func _ready():
 		GameState.show_tutorial_keybindings()
 	if start_from_spawnpoint:
 		GameState.player.global_position = $Spawnpoint.global_position
+	if self.name == "OutsidePostBattle":
+		GameState.come_back_scene = "res://scenes/levels/temple/temple.tscn"
 
 
 func _on_tutorial_item_body_entered(body: Node2D) -> void:

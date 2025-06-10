@@ -1,10 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://03ah4kv2vw1b"]
+[gd_scene load_steps=8 format=3 uid="uid://03ah4kv2vw1b"]
 
 [ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="1_e4c88"]
 [ext_resource type="SpriteFrames" uid="uid://dl0pe2ypgqgel" path="res://scenes/npc/sprite_frames/mage.tres" id="2_i6vvl"]
+[ext_resource type="Script" uid="uid://cayi5ll1ld37v" path="res://scenes/npc/mage.gd" id="2_qo218"]
+[ext_resource type="AudioStream" uid="uid://cjxyvq768lhxk" path="res://assets/RPG_Essentials_Free/8_Atk_Magic_SFX/45_Charge_05.wav" id="3_i6vvl"]
+
+[sub_resource type="Animation" id="Animation_815ol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qo218"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j75at"]
+_data = {
+&"RESET": SubResource("Animation_815ol"),
+&"fade_in": SubResource("Animation_qo218")
+}
 
 [node name="Mage" instance=ExtResource("1_e4c88")]
+script = ExtResource("2_qo218")
+start_invisible = true
+dialog = "res://dialogs/story/mage_1.json"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
 sprite_frames = ExtResource("2_i6vvl")
 animation = &"idle_front"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_j75at")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource("3_i6vvl")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -16,12 +16,14 @@ func _ready() -> void:
 	interact_prompt.visible = false
 	if dialog == 1:
 		dialog_file_path = "res://dialogs/checkopint/" + str(randi_range(2, 3)) + ".json"
+		load(dialog_file_path)
 
 
 func interact() -> void:
 	dialog_spawner.start_dialog(self, dialog_file_path, 0)
 	asp.play()
 	particles.emitting = true
+	GameState.save_checkpoint()
 
 
 func _on_mouse_entered() -> void:

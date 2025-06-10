@@ -1,6 +1,9 @@
 extends Area2D
 
 
+signal dialog_finished_completely
+
+
 @export_enum("Wood", "Gem") var kind: int
 
 
@@ -33,4 +36,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_dialog_finished_completely() -> void:
+	emit_signal("dialog_finished_completely")
 	queue_free()

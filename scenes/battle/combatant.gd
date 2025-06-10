@@ -3,6 +3,7 @@ extends Node2D
 
 
 @export var combatant_name: String = "Combatant"
+@export var attack_list: Dictionary[String, int]
 
 @onready var attack_audio_stream_player = $AttackAudioStreamPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -16,12 +17,13 @@ var hp: int = 100
 var attacks: Array[AttackDTO] = []
 var inventory: Array = []
 
+
 func _ready():
 	name_label.text = combatant_name
 	animated_sprite.play("idle_front")
-	add_attack("Soco", 10)
-	add_attack("Xingar a mãe", 50)
-
+	for attack in attack_list:
+		add_attack(attack, attack_list[attack])
+ 
 
 func set_data(sprite_frames: SpriteFrames, combatant_name: String) -> void:
 	self.sprite_frames = sprite_frames

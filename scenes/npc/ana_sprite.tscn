@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cghog27yxkw23"]
+
+[ext_resource type="SpriteFrames" uid="uid://dbswkg106trss" path="res://scenes/npc/sprite_frames/ana.tres" id="1_d2vgv"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_d2vgv")
+animation = &"idle_front"

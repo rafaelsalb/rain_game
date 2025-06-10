@@ -1801,6 +1801,7 @@ texture = ExtResource("9_vpyvb")
 
 [resource]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Grass"
 terrain_set_0/terrain_0/color = Color(0.822199, 0.128308, 0.362897, 1)

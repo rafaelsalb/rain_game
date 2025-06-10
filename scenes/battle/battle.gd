@@ -92,8 +92,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func execute_turn() -> void:
 	current_turn.execute()
-	current_attack_label.set_current_attack_label(current_attacker, current_turn.action.action)
-	current_attack_label.visible = true
+	if current_turn.action.action is AttackDTO:
+		current_attack_label.set_current_attack_label(current_attacker, current_turn.action.action)
+		current_attack_label.visible = true
 
 
 func battle_ended() -> void:
