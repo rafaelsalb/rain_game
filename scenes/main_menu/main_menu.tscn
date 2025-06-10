@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://3q2ompjwpprh"]
+
+[ext_resource type="Script" uid="uid://infrmnoajg3y" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsom3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0.01, 0.01, 0.01, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 113.0
+offset_right = 401.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 48
+text = "Inércia"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 251.0
+offset_right = 339.0
+offset_bottom = 282.0
+text = "Jogar"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
