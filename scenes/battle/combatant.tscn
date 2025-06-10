@@ -1,78 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ofm1a0i8w8kf"]
+[gd_scene load_steps=6 format=3 uid="uid://ofm1a0i8w8kf"]
 
 [ext_resource type="Script" uid="uid://deud0o5k3vgd8" path="res://scenes/battle/combatant.gd" id="1_ci4g0"]
-[ext_resource type="Texture2D" uid="uid://dbol72dv8osxl" path="res://assets/NPC_Characters_v1.0/Male1.png" id="2_ci4g0"]
 [ext_resource type="AudioStream" uid="uid://tgfukqgm1got" path="res://assets/RPG_Essentials_Free/10_Battle_SFX/22_Slash_04.wav" id="3_p50pa"]
 [ext_resource type="Texture2D" uid="uid://br7qnlux18d2y" path="res://assets/action_aim.png" id="4_a851f"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rqbde"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(0, 192, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1n78"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(32, 192, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_502kq"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(64, 192, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ra4oy"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(96, 192, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uwros"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(128, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d202e"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(160, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_edp2k"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(192, 144, 32, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rngnc"]
-atlas = ExtResource("2_ci4g0")
-region = Rect2(224, 144, 32, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p50pa"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rqbde")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1n78")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_502kq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4oy")
-}],
-"loop": true,
-"name": &"idle_front",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uwros")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d202e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_edp2k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rngnc")
-}],
-"loop": true,
-"name": &"walk_side",
-"speed": 4.0
-}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t1ya7"]
 particle_flag_disable_z = true
@@ -98,11 +28,6 @@ hue_variation_max = 0.54
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_ci4g0")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_p50pa")
-animation = &"walk_side"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

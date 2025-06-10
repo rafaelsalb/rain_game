@@ -1,29 +1,29 @@
-[gd_scene load_steps=35 format=4 uid="uid://bla4iekb65ws4"]
+[gd_scene load_steps=35 format=4 uid="uid://3iwch17p5x3c"]
 
-[ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="1_ax2pv"]
-[ext_resource type="Script" uid="uid://griyqivlhs8f" path="res://scenes/levels/outside/outside.gd" id="1_glbps"]
-[ext_resource type="Texture2D" uid="uid://c3tnq654xqkfl" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Stone Ground.png" id="2_p6ps1"]
-[ext_resource type="Texture2D" uid="uid://ueeewumldnas" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Wall.png" id="3_lg4i5"]
-[ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="4_k8xhd"]
-[ext_resource type="Texture2D" uid="uid://c4i8gage1jqyg" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Shadow.png" id="5_kvopf"]
-[ext_resource type="Texture2D" uid="uid://c3veftacevfc4" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Shadow Plant.png" id="6_y3hsd"]
-[ext_resource type="Texture2D" uid="uid://bwn7i7h7gwg2p" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Props.png" id="7_0lc0c"]
-[ext_resource type="Texture2D" uid="uid://o68gfxkxulfg" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Player.png" id="8_mw3cl"]
-[ext_resource type="Texture2D" uid="uid://biqyeosjnbxwe" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Plant.png" id="9_17p1k"]
-[ext_resource type="TileSet" uid="uid://g2qogkkp7omg" path="res://resources/tilesets/outside.tres" id="10_hyf1m"]
-[ext_resource type="Texture2D" uid="uid://cy0lgc8aybpix" path="res://assets/tiles/transparent.png" id="14_cyops"]
-[ext_resource type="PackedScene" uid="uid://daep6trkdd575" path="res://scenes/transition/Transition.tscn" id="14_k2qvf"]
-[ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="15_xshv8"]
-[ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="16_p1udp"]
-[ext_resource type="PackedScene" uid="uid://w7j7jva35kcn" path="res://scenes/dialog_area/dialog_area.tscn" id="17_xshv8"]
-[ext_resource type="PackedScene" uid="uid://dxpa0b4q6trip" path="res://scenes/item/item.tscn" id="18_p1udp"]
-[ext_resource type="AudioStream" uid="uid://dx0ej4u5wgfc6" path="res://assets/music/outside.ogg" id="19_111gj"]
-[ext_resource type="PackedScene" uid="uid://kwvjy1tsq4cy" path="res://scenes/checkpoint/checkpoint.tscn" id="20_uy3mk"]
-[ext_resource type="PackedScene" uid="uid://cag78qle54edx" path="res://scenes/special_item/special_item.tscn" id="21_3kryr"]
-[ext_resource type="PackedScene" uid="uid://dtwdbudt2pek6" path="res://scenes/npc/npc_male_0.tscn" id="21_vasu2"]
+[ext_resource type="Script" uid="uid://griyqivlhs8f" path="res://scenes/levels/outside/outside.gd" id="1_d058s"]
+[ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="2_8u7v7"]
+[ext_resource type="Texture2D" uid="uid://c3tnq654xqkfl" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Stone Ground.png" id="3_k1rvi"]
+[ext_resource type="Texture2D" uid="uid://ueeewumldnas" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Wall.png" id="4_1iwkm"]
+[ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="5_hpx1f"]
+[ext_resource type="Texture2D" uid="uid://c4i8gage1jqyg" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Shadow.png" id="6_1migo"]
+[ext_resource type="Texture2D" uid="uid://c3veftacevfc4" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Shadow Plant.png" id="7_jx5sc"]
+[ext_resource type="Texture2D" uid="uid://bwn7i7h7gwg2p" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Props.png" id="8_6w1xh"]
+[ext_resource type="Texture2D" uid="uid://o68gfxkxulfg" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Player.png" id="9_8bide"]
+[ext_resource type="Texture2D" uid="uid://biqyeosjnbxwe" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Plant.png" id="10_d5v5q"]
+[ext_resource type="TileSet" uid="uid://g2qogkkp7omg" path="res://resources/tilesets/outside.tres" id="11_4qc8c"]
+[ext_resource type="Texture2D" uid="uid://cy0lgc8aybpix" path="res://assets/tiles/transparent.png" id="12_nft30"]
+[ext_resource type="PackedScene" uid="uid://daep6trkdd575" path="res://scenes/transition/Transition.tscn" id="13_a43sn"]
+[ext_resource type="PackedScene" uid="uid://c2ct3sl38xmiu" path="res://scenes/player/player.tscn" id="14_im5s2"]
+[ext_resource type="PackedScene" uid="uid://c07sirhqje4en" path="res://scenes/effects/rain/rain.tscn" id="15_knhlx"]
+[ext_resource type="PackedScene" uid="uid://w7j7jva35kcn" path="res://scenes/dialog_area/dialog_area.tscn" id="16_o4w4q"]
+[ext_resource type="PackedScene" uid="uid://dxpa0b4q6trip" path="res://scenes/item/item.tscn" id="17_orjnj"]
+[ext_resource type="AudioStream" uid="uid://dx0ej4u5wgfc6" path="res://assets/music/outside.ogg" id="18_uc8jf"]
+[ext_resource type="PackedScene" uid="uid://kwvjy1tsq4cy" path="res://scenes/checkpoint/checkpoint.tscn" id="19_v2ydr"]
+[ext_resource type="PackedScene" uid="uid://dtwdbudt2pek6" path="res://scenes/npc/npc_male_0.tscn" id="20_2cxei"]
+[ext_resource type="PackedScene" uid="uid://cag78qle54edx" path="res://scenes/special_item/special_item.tscn" id="21_lp70e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f3bt3"]
-texture = ExtResource("1_ax2pv")
+texture = ExtResource("2_8u7v7")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -154,7 +154,7 @@ texture = ExtResource("1_ax2pv")
 14:0/0/terrain = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a1n6s"]
-texture = ExtResource("2_p6ps1")
+texture = ExtResource("3_k1rvi")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -357,7 +357,7 @@ texture = ExtResource("2_p6ps1")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afa53"]
-texture = ExtResource("3_lg4i5")
+texture = ExtResource("4_1iwkm")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
@@ -552,7 +552,7 @@ texture = ExtResource("3_lg4i5")
 11:21/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oooxc"]
-texture = ExtResource("4_k8xhd")
+texture = ExtResource("5_hpx1f")
 25:1/0 = 0
 26:1/0 = 0
 27:1/0 = 0
@@ -757,7 +757,7 @@ texture = ExtResource("4_k8xhd")
 18:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wr14"]
-texture = ExtResource("5_kvopf")
+texture = ExtResource("6_1migo")
 24:0/0 = 0
 25:0/0 = 0
 2:1/0 = 0
@@ -1079,7 +1079,7 @@ texture = ExtResource("5_kvopf")
 11:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjmc4"]
-texture = ExtResource("6_y3hsd")
+texture = ExtResource("7_jx5sc")
 4:6/0 = 0
 5:6/0 = 0
 6:6/0 = 0
@@ -1180,7 +1180,7 @@ texture = ExtResource("6_y3hsd")
 23:14/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mnf3k"]
-texture = ExtResource("7_0lc0c")
+texture = ExtResource("8_6w1xh")
 14:0/0 = 0
 15:0/0 = 0
 24:0/0 = 0
@@ -1536,7 +1536,7 @@ texture = ExtResource("7_0lc0c")
 19:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o18rb"]
-texture = ExtResource("8_mw3cl")
+texture = ExtResource("9_8bide")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1567,7 +1567,7 @@ texture = ExtResource("8_mw3cl")
 7:3/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri62n"]
-texture = ExtResource("9_17p1k")
+texture = ExtResource("10_d5v5q")
 4:0/0 = 0
 5:0/0 = 0
 3:1/0 = 0
@@ -1827,7 +1827,7 @@ sources/7 = SubResource("TileSetAtlasSource_o18rb")
 sources/8 = SubResource("TileSetAtlasSource_ri62n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0x8oa"]
-texture = ExtResource("14_cyops")
+texture = ExtResource("12_nft30")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
@@ -1840,7 +1840,7 @@ size = Vector2(34, 171)
 
 [node name="Outside" type="Node2D" groups=["camera_limiter"]]
 y_sort_enabled = true
-script = ExtResource("1_glbps")
+script = ExtResource("1_d058s")
 metadata/_edit_horizontal_guides_ = [960.0]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -1856,7 +1856,7 @@ tile_set = SubResource("TileSet_2qpqm")
 [node name="Plants" type="TileMapLayer" parent="TileMap"]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAIAAAAAQABAAAAAAALAAEAAQABAAAAAAAGAP//AQABAAAAAAABAAIAAQABAAAAAAAAAAUAAQAKAAAAAAAAABMAAQAKAAAAAAAAAAsAAQAKAAAAAAAAACEAAQAKAAAAAAAAABwAAQAKAAAAAAAAABcAAQABAAAAAAAAAB0AAQASAAAAAAAAAAcAAQASAAAAAAABAA0AAQASAAAAAAAAAA8AAQASAAAAAAAAABsAAQASAAAAAAAAACUAAQASAAAAAAAAACwAAQASAAAAAAAAADIAAQASAAAAAAAAADAAAQAKAAAAAAAAACkAAQAKAAAAAAAAADUAAQABAAAAAAAAADgAAQABAAAAAAABAAUAAQABAAAAAAABAAYAAQABAAAAAAABAAgAAQAKAAAAAAACADoAAQABAAAAAAAGADoAAQASAAAAAAAEADoAAQAKAAAAAAAIADoAAQAKAAAAAAANADoAAQAKAAAAAAASADoAAQAKAAAAAAAXADsAAQAKAAAAAAAfADoAAQAKAAAAAAA5ADkAAQAKAAAAAAAuADkAAQAKAAAAAABLADoAAQAKAAAAAABDADkAAQAKAAAAAAAbADsAAQABAAAAAAAiADoAAQABAAAAAAApADoAAQABAAAAAAA1ADoAAQABAAAAAAAyADkAAQABAAAAAABAADoAAQABAAAAAAA/ADoAAQABAAAAAAAmADoAAQASAAAAAAAsADkAAQASAAAAAAA9ADkAAQASAAAAAABGADkAAQASAAAAAABIADkAAQASAAAAAABOADoAAQASAAAAAAAPAP7/AQABAAAAAAATAP//AQABAAAAAAAZAP7/AQABAAAAAAAgAP3/AQABAAAAAAAwAP//AQABAAAAAAA5AP7/AQABAAAAAABCAP7/AQABAAAAAABIAAAAAQABAAAAAABPAP7/AQABAAAAAAAjAP7/AQAKAAAAAAAlAP7/AQAKAAAAAAAdAP3/AQAKAAAAAAAcAP7/AQAKAAAAAAAWAP7/AQAKAAAAAAA+AP7/AQAKAAAAAABMAP7/AQAKAAAAAABFAP7/AQASAAAAAAA0AP//AQASAAAAAAA2AP7/AQASAAAAAAA7AP//AQASAAAAAABPAAQAAQABAAAAAABPAA0AAQABAAAAAABPACIAAQABAAAAAABRACoAAQABAAAAAABRAB4AAQABAAAAAABRABIAAQABAAAAAABSAAcAAQABAAAAAABRADgAAQABAAAAAABQADUAAQAKAAAAAABRAC8AAQAKAAAAAABQACcAAQAKAAAAAABQABsAAQASAAAAAABQABUAAQASAAAAAABQABgAAQASAAAAAABRABQAAQASAAAAAABRABYAAQASAAAAAABSABkAAQASAAAAAABTABwAAQASAAAAAABQAAkAAQASAAAAAABQAAcAAQASAAAAAABPAAUAAQASAAAAAABPAAIAAQASAAAAAAAnAAAAAAAOAAAAAAAtAAAAAAAOAAAAAAAqAAEAAAAQAAEAAAAqAAIAAAAQAAEAAAAKADcAAQAJAAsAAAAKADYAAQARAAsAAAADAC0AAQABAAAAAAAGAC0AAQASAAAAAAAEACwAAQAKAAAAAAAJAC0AAQABAAAAAAAMAC4AAQASAAAAAAALACwAAQASAAAAAAAPAC8AAQAKAAAAAAASAC0AAQAKAAAAAAAVAC4AAQASAAAAAAAZAC8AAQABAAAAAAAYAC0AAQASAAAAAAAFADEAAQACAAwAAAAEADEAAQACAAwAAAAHADEAAQACAAwAAAAIADIAAQAJAAsAAAAJADEAAQAVAAsAAAANADIAAQANAAsAAAAQADIAAQAJAAsAAAATADEAAQANAAsAAAANADYAAQACAAwAAAASADUAAQAGAAwAAAAcAC8AAQASAAAAAAAgAC8AAQABAAAAAAAmAC8AAQABAAAAAAAjAC4AAQASAAAAAAAlAC0AAQAKAAAAAAAbACwAAQASAAAAAAAbAC8AAQASAAAAAAAXAC4AAQAKAAAAAAAfAC4AAQABAAAAAAAoAC4AAQABAAAAAAAtAC8AAQASAAAAAAArAC4AAQAKAAAAAAApAC0AAQAKAAAAAAAwAC4AAQABAAAAAAA0AC4AAQAKAAAAAAAyACwAAQAKAAAAAAAxAC0AAQABAAAAAAA3AC4AAQASAAAAAAA5AC0AAQASAAAAAAA7AC4AAQABAAAAAAA+AC4AAQABAAAAAABNAC8AAQABAAAAAABKAC4AAQABAAAAAABHAC8AAQASAAAAAABJAC8AAQASAAAAAAAXADMAAQARAAsAAAAcADMAAQANAAsAAAAhADIAAQANAAsAAAAkADMAAQAVAAsAAAAoADMAAQAVAAsAAAArADIAAQANAAsAAAAxADMAAQACAAwAAAAuADIAAQARAAsAAAAzADEAAQARAAsAAAAxADEAAQANAAsAAAA2ADIAAQANAAsAAAA8ADIAAQANAAsAAAA4ADEAAQAJAAsAAAA5ADEAAQAVAAsAAABIADIAAwAAAB4AAABHADMAAQANAAsAAABKADMAAQACAAwAAABNADIAAQAJAAsAAABLADIAAQAVAAsAAAA+ACwAAQASAAAAAABHACUAAQASAAAAAABHACMAAQABAAAAAAA+ACQAAQASAAAAAAA/ACUAAQABAAAAAAA6ACUAAQAKAAAAAAA1ACQAAQABAAAAAAAuACMAAQABAAAAAAAxACMAAQAKAAAAAAAqACEAAQABAAAAAAArACIAAQAKAAAAAAAqABkAAQASAAAAAAApABsAAQASAAAAAAAtABgAAQAKAAAAAAAwABgAAQASAAAAAAAuABcAAQAKAAAAAAAyABcAAQASAAAAAAAqAB4AAQAKAAAAAAA6ABcAAQASAAAAAAA1ABcAAQABAAAAAAA0AB4AAwAEAB4AAAApADMAAwAIAB4AAAAZADgAAwAEAB4AAAAEADIAAwACAB4AAAALADcAAwACAB4AAAAeADIAAwAGAB4AAAAkADEAAwAIAB4AAAAvADMAAwAEAB4AAABNADcAAwAKAB4AAABAACsAAwAIAB4AAABAACoAAwAEAB4AAAA9ACkAAQABAAAAAAA3ACcAAQANAAsAAAAuABwAAQAGAAwAAAAyABsAAQAJAAsAAAA2ABsAAQAVAAsAAAA0ACEAAQAGAAwAAAA5AB8AAQANAAsAAAA4ACIAAQAGAAwAAAAtAB8AAQACAAwAAAAsAB0AAQAJAAsAAAA5ABsAAQAJAAsAAAA9ABYAAQASAAAAAAA+ABEAAQAKAAAAAABAABQAAQABAAAAAAA7AA4AAQABAAAAAAA4AA8AAQAKAAAAAAA0ABAAAQASAAAAAAAxAA4AAQABAAAAAAAtAA8AAQASAAAAAAAqAA4AAQASAAAAAABDABIAAQAKAAAAAABFABAAAQASAAAAAABKABAAAQABAAAAAABMABMAAQASAAAAAABEABQAAQAJAAsAAABCABcAAQAJAAsAAAA+ABwAAQAJAAsAAAA/ABgAAQAJAAsAAAA7ABoAAQAJAAsAAABOABkAAQAJAAsAAABOABcAAQARAAsAAABOABYAAQAJAAsAAABNABUAAQAGAAwAAABMABUAAQAVAAsAAABKABUAAQANAAsAAABGABsAAwAAAB4AAABNAB0AAwACAB4AAABLABcAAwACAB4AAABDABsAAwAEAB4AAAA+ABoAAwAAAB4AAAAnAA4AAQAKAAAAAAAiAAkAAQABAAAAAAAjAAwAAQASAAAAAAAlAA0AAQASAAAAAAAfAAUAAQASAAAAAAAhAAcAAQABAAAAAAAiAAIAAQABAAAAAAA=")
-tile_set = ExtResource("10_hyf1m")
+tile_set = ExtResource("11_4qc8c")
 collision_visibility_mode = 2
 
 [node name="InvisibleWall" type="TileMapLayer" parent="TileMap"]
@@ -1866,16 +1866,16 @@ tile_set = SubResource("TileSet_k2qvf")
 [node name="Spawnpoint" type="Marker2D" parent="."]
 position = Vector2(98, 840)
 
-[node name="Transition" parent="." instance=ExtResource("14_k2qvf")]
+[node name="Transition" parent="." instance=ExtResource("13_a43sn")]
 forwards = false
 
-[node name="Player" parent="." instance=ExtResource("15_xshv8")]
+[node name="Player" parent="." instance=ExtResource("14_im5s2")]
 position = Vector2(686, 103)
 health = 90
 
-[node name="Rain" parent="Player" instance=ExtResource("16_p1udp")]
+[node name="Rain" parent="Player" instance=ExtResource("15_knhlx")]
 
-[node name="TutorialDialogArea1" parent="." instance=ExtResource("17_xshv8")]
+[node name="TutorialDialogArea1" parent="." instance=ExtResource("16_o4w4q")]
 position = Vector2(229, 859)
 dialog_path = "res://dialogs/tutorial_1.json"
 
@@ -1883,7 +1883,7 @@ dialog_path = "res://dialogs/tutorial_1.json"
 position = Vector2(0, 15.5)
 shape = SubResource("RectangleShape2D_p1udp")
 
-[node name="StoryDialogArea1" parent="." instance=ExtResource("17_xshv8")]
+[node name="StoryDialogArea1" parent="." instance=ExtResource("16_o4w4q")]
 position = Vector2(551, 859)
 dialog_path = "res://dialogs/story/story_1.json"
 
@@ -1891,7 +1891,7 @@ dialog_path = "res://dialogs/story/story_1.json"
 position = Vector2(0, 15.5)
 shape = SubResource("RectangleShape2D_p1udp")
 
-[node name="StoryDialogArea2" parent="." instance=ExtResource("17_xshv8")]
+[node name="StoryDialogArea2" parent="." instance=ExtResource("16_o4w4q")]
 position = Vector2(827, 859)
 dialog_path = "res://dialogs/story/story_2.json"
 
@@ -1899,7 +1899,7 @@ dialog_path = "res://dialogs/story/story_2.json"
 position = Vector2(0, 15.5)
 shape = SubResource("RectangleShape2D_p1udp")
 
-[node name="TutorialItem" parent="." instance=ExtResource("18_p1udp")]
+[node name="TutorialItem" parent="." instance=ExtResource("17_orjnj")]
 position = Vector2(297, 856)
 
 [node name="KeybindingsTimer" type="Timer" parent="."]
@@ -1909,21 +1909,21 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("19_111gj")
+stream = ExtResource("18_uc8jf")
 
-[node name="Item" parent="." instance=ExtResource("18_p1udp")]
+[node name="Item" parent="." instance=ExtResource("17_orjnj")]
 position = Vector2(1146, 855)
 
-[node name="Item2" parent="." instance=ExtResource("18_p1udp")]
+[node name="Item2" parent="." instance=ExtResource("17_orjnj")]
 position = Vector2(839, 483)
 
-[node name="Checkpoint" parent="." instance=ExtResource("20_uy3mk")]
+[node name="Checkpoint" parent="." instance=ExtResource("19_v2ydr")]
 position = Vector2(1224, 852)
 
-[node name="Thief" parent="." instance=ExtResource("21_vasu2")]
+[node name="Thief" parent="." instance=ExtResource("20_2cxei")]
 position = Vector2(686, 60)
 
-[node name="SpecialItem" parent="." instance=ExtResource("21_3kryr")]
+[node name="SpecialItem" parent="." instance=ExtResource("21_lp70e")]
 position = Vector2(1157, 321)
 
 [connection signal="body_entered" from="TutorialItem" to="." method="_on_tutorial_item_body_entered"]

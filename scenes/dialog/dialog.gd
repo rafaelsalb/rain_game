@@ -35,7 +35,6 @@ func _input(_event: InputEvent) -> void:
 			#progress = len(dialog_text) - 2
 			pass
 		else:
-			print("unfreezing player")
 			GameState.unfreeze_player()
 			emit_signal("dialog_finished")
 			queue_free()

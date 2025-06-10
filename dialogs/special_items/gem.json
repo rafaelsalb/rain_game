@@ -1,0 +1,14 @@
+{
+	"default": [
+		{
+			"speaker": "Telos",
+			"text": "A gema! Agora posso fazer o anel.",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Enfim, acho que missão cumprida.",
+			"portrait": "res://assets/portraits/game/player.png"
+		}
+	]
+}

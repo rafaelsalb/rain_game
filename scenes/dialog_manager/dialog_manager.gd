@@ -17,7 +17,6 @@ var root: Node
 
 
 func next_line() -> bool:
-	print("next_line ", current_line, " lines ", lines)
 	if current_line < len(lines):
 		var portrait_path = lines[current_line].get("portrait")
 		var speaker = lines[current_line].get("speaker")
@@ -33,12 +32,10 @@ func next_line() -> bool:
 		current_line += 1
 		return true
 	else:
-		print("ended")
 		return false
 
 
 func _on_dialog_finished():
-	print("_on_dialog_finished")
 	if not next_line():
 		current_line = 0
 		emit_signal("dialog_finished_completely")
@@ -48,7 +45,7 @@ func _on_dialog_finished():
 func start_dialog(asker: Node, dialog_file_path: String, from: int) -> void:
 	var dialog_file = load(dialog_file_path)
 	if not dialog_file:
-		print("Error loading dialog file: " + dialog_file_path)
+		push_error("Error loading dialog file: " + dialog_file_path)
 		return
 	root = asker
 	dialog = dialog_file.data

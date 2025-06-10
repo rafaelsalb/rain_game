@@ -21,6 +21,8 @@ func change_scene_with_save(scene_path: String, current_path: String, current_st
 
 func change_scene(scene_path: String) -> void:
 	get_tree().change_scene_to_file(scene_path)
+	for node in get_tree().get_nodes_in_group("globals"):
+		node.reload()
 
 func go_to_previous_scene() -> void:
 	get_tree().change_scene_to_file(last_scene)

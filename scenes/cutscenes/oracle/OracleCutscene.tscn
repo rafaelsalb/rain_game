@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bu3iu845ve22p"]
+[gd_scene load_steps=17 format=3 uid="uid://bu3iu845ve22p"]
 
 [ext_resource type="Shader" uid="uid://10lhi87c6447" path="res://resources/shaders/animated_zoom.gdshader" id="1_hw6nj"]
 [ext_resource type="Script" uid="uid://c1xylm0i041v8" path="res://scenes/cutscenes/oracle/oracle_cutscene.gd" id="1_jsp4k"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bufaf1firydcj" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="4_a02t2"]
 [ext_resource type="Texture2D" uid="uid://dmmnk3ul5fa40" path="res://assets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="5_hicv5"]
 [ext_resource type="PackedScene" uid="uid://cxghwadih65je" path="res://scenes/player/player_sprite.tscn" id="8_a02t2"]
+[ext_resource type="AudioStream" uid="uid://ba0f4ed8bxdan" path="res://assets/music/oracle.ogg" id="8_hicv5"]
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="9_hicv5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6np0h"]
 shader = ExtResource("1_hw6nj")
@@ -54,7 +56,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_hicv5"]
 resource_name = "main"
-length = 10.0
+length = 6.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -107,7 +109,6 @@ tile_map_data = PackedByteArray(0, 0, 20, 0, 27, 0, 2, 0, 6, 0, 0, 0, 0, 0, 20, 
 tile_set = SubResource("TileSet_igwk7")
 
 [node name="Stairs" type="TileMapLayer" parent="."]
-visible = false
 tile_map_data = PackedByteArray(0, 0, 20, 0, 27, 0, 0, 0, 2, 0, 10, 0, 0, 0)
 tile_set = SubResource("TileSet_igwk7")
 
@@ -119,5 +120,12 @@ animation = &"walk_up"
 libraries = {
 &"": SubResource("AnimationLibrary_pptbe")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hicv5")
+autoplay = true
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("9_hicv5")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

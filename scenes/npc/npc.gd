@@ -18,7 +18,7 @@ var movement_direction: Vector2 = Vector2(0.0, 1.0)
 func _ready() -> void:
 	if animated_sprite:
 		animated_sprite.play("idle_front")
-	dialog_spawner.connect("dialog_finished", self._on_dialog_finished)
+	dialog_spawner.connect("dialog_finished_completely", self._on_dialog_finished_completely)
 	interact_prompt.visible = false
 
 
@@ -32,9 +32,10 @@ func hide_interact_prompt() -> void:
 
 func interact() -> void:
 	$DialogSpawner.start_dialog(self, dialog, 0)
+	$DialogArea.monitoring = false
 
 
-func _on_dialog_finished():
+func _on_dialog_finished_completely():
 	if battle:
 		var transition_scene = load("res://scenes/transition/Transition.tscn")
 		var transition_instance = transition_scene.instantiate()

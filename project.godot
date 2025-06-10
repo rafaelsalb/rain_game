@@ -38,6 +38,8 @@ mouse_cursor/custom_image="uid://d0klsj8k6caal"
 battle_manager="Can handle battle signals."
 ui_main_menu=""
 battle_menus=""
+friends=""
+foes=""
 
 [input]
 

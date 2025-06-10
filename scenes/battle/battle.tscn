@@ -7,12 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://bwqgk60qjrqek" path="res://assets/SBS - Seamless Space Backgrounds - Small 512x512/Small 512x512/Purple Nebula/Purple_Nebula_06-512x512.png" id="3_kd6yx"]
 [ext_resource type="PackedScene" uid="uid://cia4yvitsre6c" path="res://scenes/battle/ui/icon_button.tscn" id="3_pll4o"]
 [ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="4_0yh6x"]
-[ext_resource type="PackedScene" uid="uid://ofm1a0i8w8kf" path="res://scenes/battle/combatant.tscn" id="5_fh7rg"]
 [ext_resource type="Script" uid="uid://cofnubq1him7i" path="res://scenes/battle/ui/attack_menu.gd" id="6_pll4o"]
 [ext_resource type="Script" uid="uid://b020ir058qkw" path="res://scenes/battle/target_menu.gd" id="7_agsc7"]
 [ext_resource type="Script" uid="uid://casa7hxtcug2h" path="res://scenes/battle/ui/item_menu.gd" id="8_fisqk"]
 [ext_resource type="PackedScene" uid="uid://beehkiwpy7ews" path="res://scenes/inventory/inventory.tscn" id="8_oiw7q"]
 [ext_resource type="AudioStream" uid="uid://cu8oqy2jb0or1" path="res://assets/music/battle.ogg" id="9_agsc7"]
+[ext_resource type="Script" uid="uid://c1lqk26g4543u" path="res://scenes/battle/current_attack_label.gd" id="12_n6gaa"]
 [ext_resource type="AudioStream" uid="uid://0jipomt04qu0" path="res://assets/music/victory.ogg" id="14_t1kk3"]
 [ext_resource type="AudioStream" uid="uid://bna8f8dgnqyhd" path="res://assets/music/defeat.ogg" id="15_n6gaa"]
 [ext_resource type="PackedScene" uid="uid://daep6trkdd575" path="res://scenes/transition/Transition.tscn" id="16_n6gaa"]
@@ -39,7 +39,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Player:position")
+tracks/0/path = NodePath("Characters/PlayerPosition:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -51,18 +51,18 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Characters/Enemy:position")
+tracks/1/path = NodePath("Characters/EnemyPosition:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(443, 200)]
+"values": [Vector2(433, 200)]
 }
 
-[sub_resource type="Animation" id="Animation_py4tk"]
-resource_name = "enemy_attack"
+[sub_resource type="Animation" id="Animation_fisqk"]
+resource_name = "player_attack"
 length = 2.5
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -81,86 +81,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Characters/Enemy:position")
+tracks/1/path = NodePath("Characters/PlayerPosition:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(443, 200), Vector2(320, 200), Vector2(320, 200), Vector2(443, 200)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Characters/Enemy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.0001, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": ["walk_side", false],
-"method": &"update_animation"
-}, {
-"args": ["idle_front", false],
-"method": &"update_animation"
-}, {
-"args": ["walk_side", true],
-"method": &"update_animation"
-}, {
-"args": ["idle_front", false],
-"method": &"update_animation"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Characters/Enemy")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_random_attack_animation"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_fisqk"]
-resource_name = "player_attack"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"times": PackedFloat32Array(0, 0.966667, 1.5, 2.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(183, 200), Vector2(320, 200), Vector2(320, 200), Vector2(183, 200)]
 }
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Characters/Player")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"play_random_attack_animation"
-}]
-}
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Characters/Player")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -168,16 +101,16 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": ["walk_side", true],
-"method": &"update_animation"
+"method": &"set_player_animation"
 }, {
 "args": ["idle_front", false],
-"method": &"update_animation"
+"method": &"set_player_animation"
 }, {
 "args": ["walk_side", false],
-"method": &"update_animation"
+"method": &"set_player_animation"
 }, {
 "args": ["idle_front", false],
-"method": &"update_animation"
+"method": &"set_player_animation"
 }]
 }
 tracks/3/type = "method"
@@ -191,14 +124,81 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
+"method": &"player_play_random_attack_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t1kk3"]
+resource_name = "enemy_attack"
+length = 2.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
 "method": &"execute_turn"
 }]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": ["walk_side", false],
+"method": &"set_enemy_animation"
+}, {
+"args": ["idle_front", false],
+"method": &"set_enemy_animation"
+}, {
+"args": ["walk_side", true],
+"method": &"set_enemy_animation"
+}, {
+"args": ["idle_front", false],
+"method": &"set_enemy_animation"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"player_play_random_attack_animation"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Characters/EnemyPosition:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(433, 200), Vector2(296, 200), Vector2(296, 200), Vector2(433, 200)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_icoan"]
 _data = {
 &"RESET": SubResource("Animation_mxe8n"),
-&"enemy_attack": SubResource("Animation_py4tk"),
+&"enemy_attack": SubResource("Animation_t1kk3"),
 &"player_attack": SubResource("Animation_fisqk")
 }
 
@@ -344,6 +344,12 @@ script = ExtResource("8_fisqk")
 [node name="Inventory" parent="HUD/BattleUI/DetailsMenu/MarginContainer/ItemMenu" instance=ExtResource("8_oiw7q")]
 layout_mode = 2
 
+[node name="CurrentAttackLabel" type="Label" parent="HUD/BattleUI/DetailsMenu/MarginContainer" groups=["battle_menus"]]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_0yh6x")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("12_n6gaa")
+
 [node name="ResultContainer" type="CenterContainer" parent="HUD"]
 visible = false
 layout_mode = 1
@@ -387,13 +393,11 @@ text = "Voltar ao checkpoint"
 
 [node name="Characters" type="Node2D" parent="."]
 
-[node name="Player" parent="Characters" groups=["combatants", "friends"] instance=ExtResource("5_fh7rg")]
+[node name="PlayerPosition" type="Marker2D" parent="Characters"]
 position = Vector2(183, 200)
-combatant_name = "Desgraçado"
 
-[node name="Enemy" parent="Characters" groups=["combatants", "foes"] instance=ExtResource("5_fh7rg")]
-position = Vector2(443, 200)
-combatant_name = "Maldito"
+[node name="EnemyPosition" type="Marker2D" parent="Characters"]
+position = Vector2(433, 200)
 
 [node name="PrepareUITimer" type="Timer" parent="."]
 wait_time = 0.2

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg6ap72og73i"]
+
+[ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="1_2cjpk"]
+[ext_resource type="SpriteFrames" uid="uid://dbswkg106trss" path="res://scenes/npc/sprite_frames/ana.tres" id="2_ixx0v"]
+
+[node name="Ana" instance=ExtResource("1_2cjpk")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = ExtResource("2_ixx0v")
+animation = &"idle_front"

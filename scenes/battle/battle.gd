@@ -2,6 +2,7 @@ extends Node2D
 
 @export_file var next_scene: String
 
+var current_attacker: Combatant
 var combatants = {}
 var friends = []
 var foes = []
@@ -16,6 +17,7 @@ var ended: bool = false
 @onready var result_container: Control = find_child("ResultContainer")
 @onready var victory_container: Control = find_child("VictoryContainer")
 @onready var defeat_container: Control = find_child("DefeatContainer")
+@onready var current_attack_label: Label = find_child("CurrentAttackLabel")
 
 
 func _ready():
@@ -45,6 +47,7 @@ func _on_prepare_ui_timer_timeout() -> void:
 
 
 func start_turn() -> void:
+	current_attacker = friends[0]
 	if not ended:
 		current_turn = Turn.new()
 		current_turn.setup(self)
@@ -55,9 +58,11 @@ func start_turn() -> void:
 func finish_turn() -> void:
 	battle_ui.disable_action_buttons()
 	animation_player.play("player_attack")
+	battle_ui.hide_all_battle_menus()
 
 
 func start_opponent_turn() -> void:
+	current_attacker = foes[0]
 	if not ended:
 		current_turn = Turn.new()
 		current_turn.setup(self)
@@ -68,6 +73,7 @@ func start_opponent_turn() -> void:
 
 func finish_opponent_turn() -> void:
 	animation_player.play("enemy_attack")
+	battle_ui.hide_all_battle_menus()
 
 
 func enemy_chose_attack() -> void:
@@ -86,6 +92,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func execute_turn() -> void:
 	current_turn.execute()
+	current_attack_label.set_current_attack_label(current_attacker, current_turn.action.action)
+	current_attack_label.visible = true
 
 
 func battle_ended() -> void:
@@ -120,3 +128,19 @@ func _on_victory_button_button_up() -> void:
 
 func _on_defeat_button_button_up() -> void:
 	LevelManager.go_to_last_checkpoint()
+
+
+func set_player_animation(animation: String, flip_h: bool) -> void:
+	friends[0].update_animation(animation, flip_h)
+
+
+func set_enemy_animation(animation: String, flip_h: bool) -> void:
+	foes[0].update_animation(animation, flip_h)
+
+
+func player_play_random_attack_animation() -> void:
+	friends[0].play_random_attack_animation()
+
+
+func enemy_play_random_attack_animation() -> void:
+	foes[0].play_random_attack_animation()

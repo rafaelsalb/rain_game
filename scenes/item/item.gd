@@ -6,7 +6,7 @@ extends Area2D
 @export var item_description: String = "Um biscoito saboroso. Hmmm..."
 @export var item_type: String = "food"
 @export var item_icon: int = 0
-@export var heal_amount: float
+@export var heal_amount: float = 10.0
 
 
 @onready var pickup_particles_scene: PackedScene = preload("res://scenes/item/item_pickup_particles.tscn")

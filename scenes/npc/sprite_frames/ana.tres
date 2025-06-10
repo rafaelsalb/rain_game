@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dbswkg106trss"]
+
+[ext_resource type="Texture2D" uid="uid://c05dkfh5n7jx7" path="res://assets/NPC_Characters_v1.0/Female1.png" id="1_x5ylm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlf8k"]
+atlas = ExtResource("1_x5ylm")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf6ue"]
+atlas = ExtResource("1_x5ylm")
+region = Rect2(32, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqnpg"]
+atlas = ExtResource("1_x5ylm")
+region = Rect2(64, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdap5"]
+atlas = ExtResource("1_x5ylm")
+region = Rect2(96, 48, 32, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlf8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf6ue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqnpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdap5")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 2.0
+}]

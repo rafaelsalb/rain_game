@@ -37,9 +37,16 @@ func hide_tutorial_keybindings() -> void:
 
 
 func show_tutorial_indicator() -> void:
-	print("showing tutorial indicator")
 	$TutorialIndicator.visible = true
 
 
 func hide_tutorial_indicator() -> void:
 	$TutorialIndicator.visible = false
+
+
+func got_wood() -> void:
+	player_menu.got_wood()
+
+
+func got_gem() -> void:
+	player_menu.got_gem()

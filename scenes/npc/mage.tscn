@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://03ah4kv2vw1b"]
+
+[ext_resource type="PackedScene" uid="uid://b8r4u52lg6yt0" path="res://scenes/npc/npc.tscn" id="1_e4c88"]
+[ext_resource type="SpriteFrames" uid="uid://dl0pe2ypgqgel" path="res://scenes/npc/sprite_frames/mage.tres" id="2_i6vvl"]
+
+[node name="Mage" instance=ExtResource("1_e4c88")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = ExtResource("2_i6vvl")
+animation = &"idle_front"

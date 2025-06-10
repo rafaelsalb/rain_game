@@ -2,8 +2,18 @@
 	"default": [
 		{
 			"speaker": "Telos",
-			"text": "Essa região é perigosa à noite, então preciso tomar cuidado. Ladrões e rebeldes vagam pelas redondezas.",
-			"portrait": "res://assets/portraits/game/player.png",
+			"text": "Francamente, eu nem sei porque estou fazendo isso. O que aquela mulher pensa, se casando nos tempos atuais?",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Só faço o trabalho porque preciso do dinheiro.",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Certo, preciso encontrar a tal madeira que ela pediu...",
+			"portrait": "res://assets/portraits/game/player.png"
 		}
 	]
 }

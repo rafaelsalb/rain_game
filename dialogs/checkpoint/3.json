@@ -1,0 +1,14 @@
+{
+	"default": [
+		{
+			"speaker": "Checkpoint",
+			"text": "A vida é dura, mas descansar ajuda.",
+			"portrait": "assets/UI/heart.png"
+		},
+		{
+			"speaker": "Checkpoint",
+			"text": "Por algum motivo, isso te enche de determinação.",
+			"portrait": "assets/UI/heart.png"
+		}
+	]
+}

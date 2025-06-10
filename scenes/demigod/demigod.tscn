@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c408x78e0nxn5"]
+[gd_scene load_steps=31 format=3 uid="uid://c408x78e0nxn5"]
 
 [ext_resource type="Texture2D" uid="uid://bl5cxx6xp2da4" path="res://assets/Agis/Agis.png" id="1_01cjy"]
 [ext_resource type="Script" uid="uid://c7qgpi6n02iyw" path="res://scenes/demigod/demigod.gd" id="1_7na6e"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kcvs0aec1ohq" path="res://scenes/demigod/demigod_sprite.tscn" id="5_rx0r8"]
 [ext_resource type="Shader" uid="uid://duwbyqfxku5n" path="res://scenes/demigod/demigod.gdshader" id="6_e6yfm"]
 [ext_resource type="PackedScene" uid="uid://cutjahq1a2w7x" path="res://scenes/gemini_api/gemini_api.tscn" id="6_rx0r8"]
+[ext_resource type="AudioStream" uid="uid://ba0f4ed8bxdan" path="res://assets/music/oracle.ogg" id="8_q8nlp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bospl"]
 shader = ExtResource("2_km8mx")
@@ -249,8 +250,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 320.0
-offset_right = 640.0
-offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -259,13 +258,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 split_offset = 100
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="Label" type="RichTextLabel" parent="HUDCanvasLayer/Control/Panel/VSplitContainer"]
+[node name="ResponseLabel" type="RichTextLabel" parent="HUDCanvasLayer/Control/Panel/VSplitContainer"]
 layout_mode = 2
 
 [node name="HSplitContainer" type="HSplitContainer" parent="HUDCanvasLayer/Control/Panel/VSplitContainer"]
@@ -274,11 +274,11 @@ split_offset = 533
 dragging_enabled = false
 dragger_visibility = 1
 
-[node name="LineEdit" type="LineEdit" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
+[node name="InputField" type="LineEdit" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
 layout_mode = 2
 placeholder_text = "Escreva sua pergunta aqui..."
 
-[node name="Button" type="Button" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
+[node name="SendButton" type="Button" parent="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer"]
 layout_mode = 2
 text = "Perguntar"
 
@@ -286,7 +286,15 @@ text = "Perguntar"
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-text = "Voltar"
+text = "Sair"
+
+[node name="Label" type="Label" parent="HUDCanvasLayer/Control"]
+layout_mode = 0
+offset_left = 221.0
+offset_right = 460.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 24
+text = "Pergunte ao Oráculo"
 
 [node name="FadeInCanvasLayer" type="CanvasLayer" parent="."]
 layer = 10
@@ -304,5 +312,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_hrb1a")
 }
 
-[connection signal="button_down" from="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer/Button" to="." method="_on_button_button_down"]
-[connection signal="button_up" from="HUDCanvasLayer/Control/QuitButton" to="." method="_on_button_button_up"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_q8nlp")
+autoplay = true
+
+[connection signal="button_down" from="HUDCanvasLayer/Control/Panel/VSplitContainer/HSplitContainer/SendButton" to="." method="_on_button_button_down"]
+[connection signal="button_up" from="HUDCanvasLayer/Control/QuitButton" to="." method="_on_quit_button_up"]

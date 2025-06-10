@@ -2,7 +2,6 @@ class_name Combatant
 extends Node2D
 
 
-@export var sprite_frames: SpriteFrames = load("res://resources/sprite_frames/default_combatant.tres")
 @export var combatant_name: String = "Combatant"
 
 @onready var attack_audio_stream_player = $AttackAudioStreamPlayer

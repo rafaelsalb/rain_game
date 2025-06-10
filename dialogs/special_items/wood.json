@@ -1,0 +1,24 @@
+{
+	"default": [
+		{
+			"speaker": "Telos",
+			"text": "Achei a tal madeira boa. Isso foi mais fácil do que eu esperava.",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Espero que continue sendo fácil assim.",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Assim posso voltar para casa e dormir.",
+			"portrait": "res://assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Mas antes, preciso achar a gema do anel.",
+			"portrait": "res://assets/portraits/game/player.png"
+		}
+	]
+}

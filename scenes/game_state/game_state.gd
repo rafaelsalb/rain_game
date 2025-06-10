@@ -5,10 +5,13 @@ signal got_new_item
 signal saw_notification
 
 
+var has_wood: bool = false
+var has_gem: bool = false
 var new_item_notification: bool = false
 var inventory: Array = []
 var player: Node
 var player_hud: Node
+var come_back_scene: String
 
 
 func _ready() -> void:
@@ -18,6 +21,7 @@ func _ready() -> void:
 		connect("got_new_item", player_hud.turn_on_new_item_notification)
 		connect("got_new_item", player.got_new_item)
 		connect("saw_notification", player_hud.turn_off_new_item_notification)
+	GameState.come_back_scene = "res://scenes/levels/"
 
 func add_to_inventory(item: GameItem) -> void:
 	inventory.append(item)
@@ -34,32 +38,49 @@ func is_within_interaction_range(target: Node) -> float:
 	return dist <= 32.0
 
 func set_as_interact(target: Node) -> void:
-	if not target:
-		return
-	player.interact_target = target
+	if player:
+		if not target:
+			return
+		player.interact_target = target
 
 func clear_new_item_notification() -> void:
 	new_item_notification = false
 	emit_signal("saw_notification")
 
 func freeze_player() -> void:
-	player.stop_moving()
-	player.set_process_input(false)
+	if player:
+		player.stop_moving()
+		player.set_process_input(false)
 
 func unfreeze_player() -> void:
-	player.set_process_input(true)
+	if player:
+		player.set_process_input(true)
 
 func show_tutorial_keybindings() -> void:
-	player.show_tutorial_keybindings()
+	if player:
+		player.show_tutorial_keybindings()
 
 func hide_tutorial_keybindings() -> void:
-	player.hide_tutorial_keybindings()
+	if player:
+		player.hide_tutorial_keybindings()
 
 func show_tutorial_indicator() -> void:
-	player.show_tutorial_indicator()
+	if player:
+		player.show_tutorial_indicator()
 
 func hide_tutorial_indicator() -> void:
-	player.hide_tutorial_indicator()
+	if player:
+		player.hide_tutorial_indicator()
 
 func on_dialog_finished() -> void:
 	unfreeze_player()
+
+func got_wood() -> void:
+	if player_hud:
+		has_wood = true
+		player_hud.got_wood()
+
+func got_gem() -> void:
+	if player_hud:
+		has_gem = true
+		player_hud.got_gem()

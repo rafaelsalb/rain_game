@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3564isxovrhl"]
+[gd_scene load_steps=23 format=3 uid="uid://3564isxovrhl"]
 
 [ext_resource type="Script" uid="uid://cixl8tfo0k3mt" path="res://scenes/player/player_menu.gd" id="1_4uo60"]
 [ext_resource type="FontFile" uid="uid://dij3t1qay4qr2" path="res://assets/Fonts/Qager-zrlmw.ttf" id="1_icpbw"]
@@ -8,9 +8,62 @@
 [ext_resource type="Texture2D" uid="uid://d11aiwg3d3lhm" path="res://resources/atlas/Male1_atlas.tres" id="3_g26ul"]
 [ext_resource type="Script" uid="uid://dflytxb1udsvy" path="res://scenes/player/hud/main_menu.gd" id="5_3h3x0"]
 [ext_resource type="PackedScene" uid="uid://060i5483b16j" path="res://scenes/player/hud/options_menu.tscn" id="5_o0cw4"]
+[ext_resource type="Texture2D" uid="uid://dvkn12fte8b1c" path="res://assets/Pixel Art Wood/Transparent .PNG Files/wood_1.png" id="9_2q84c"]
+[ext_resource type="Texture2D" uid="uid://l0stkl0i5j5t" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0000.png" id="10_xrq65"]
+[ext_resource type="Texture2D" uid="uid://btdhp650j1edg" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0001.png" id="11_c7ux7"]
+[ext_resource type="Texture2D" uid="uid://cdwl2bnodvfnq" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0002.png" id="12_rbd78"]
+[ext_resource type="Texture2D" uid="uid://b00imjbcil6bw" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0003.png" id="13_i5h0x"]
+[ext_resource type="Texture2D" uid="uid://dh8qjfjrtomuh" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0004.png" id="14_2cnnc"]
+[ext_resource type="Texture2D" uid="uid://cifw53i72hkx3" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0005.png" id="15_mdlo3"]
+[ext_resource type="Texture2D" uid="uid://4xogjyo0ly6q" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0006.png" id="16_4vg4m"]
+[ext_resource type="Texture2D" uid="uid://dmqhe8m8wqy8q" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0007.png" id="17_0lxd1"]
+[ext_resource type="Texture2D" uid="uid://b1kkkmrdjxtv7" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0008.png" id="18_nmnpn"]
+[ext_resource type="Texture2D" uid="uid://djenr82ymnc30" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0009.png" id="19_1y13m"]
+[ext_resource type="Texture2D" uid="uid://b8bvbbyaitp2g" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0010.png" id="20_s050l"]
 
 [sub_resource type="Theme" id="Theme_3h3x0"]
 default_font = ExtResource("1_icpbw")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_balow"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_xrq65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_c7ux7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rbd78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_i5h0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2cnnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mdlo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4vg4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0lxd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_nmnpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_1y13m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_s050l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PlayerMenu" type="Panel" groups=["ui_main_menu"]]
 process_mode = 2
@@ -59,7 +112,7 @@ layout_mode = 2
 
 [node name="StatsLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/StatsVBoxContainer"]
 layout_mode = 2
-text = "Atributos"
+text = "Telos"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/StatsContainer/VSplitContainer/StatsVBoxContainer"]
@@ -124,6 +177,19 @@ offset_right = 320.0
 offset_bottom = 32.0
 texture_normal = ExtResource("2_xwxel")
 stretch_mode = 0
+
+[node name="Wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 191.0
+offset_right = 162.0
+offset_bottom = 255.0
+scale = Vector2(0.686203, 0.686203)
+texture = ExtResource("9_2q84c")
+
+[node name="Gem" type="AnimatedSprite2D" parent="."]
+position = Vector2(43, 215)
+sprite_frames = SubResource("SpriteFrames_balow")
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/InventoryButton" to="." method="_on_inventory_button_button_up"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/HBoxContainer/MenuButtonsContainer/MainMenu/OptionsButton" to="." method="_on_options_button_button_up"]

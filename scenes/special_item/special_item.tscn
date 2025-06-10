@@ -1,0 +1,99 @@
+[gd_scene load_steps=19 format=3 uid="uid://cag78qle54edx"]
+
+[ext_resource type="Script" uid="uid://bklf3o3vreyjm" path="res://scenes/special_item/special_item.gd" id="1_vp32b"]
+[ext_resource type="Texture2D" uid="uid://l0stkl0i5j5t" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0000.png" id="2_6x8t3"]
+[ext_resource type="Texture2D" uid="uid://btdhp650j1edg" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0001.png" id="3_67o5m"]
+[ext_resource type="Texture2D" uid="uid://cdwl2bnodvfnq" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0002.png" id="4_gbbao"]
+[ext_resource type="Texture2D" uid="uid://b00imjbcil6bw" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0003.png" id="5_h05ta"]
+[ext_resource type="Texture2D" uid="uid://dh8qjfjrtomuh" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0004.png" id="6_i63u6"]
+[ext_resource type="Texture2D" uid="uid://cifw53i72hkx3" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0005.png" id="7_fd5y6"]
+[ext_resource type="Texture2D" uid="uid://4xogjyo0ly6q" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0006.png" id="8_fg4dr"]
+[ext_resource type="Texture2D" uid="uid://dmqhe8m8wqy8q" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0007.png" id="9_dy7jl"]
+[ext_resource type="Texture2D" uid="uid://b1kkkmrdjxtv7" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0008.png" id="10_2guxk"]
+[ext_resource type="Texture2D" uid="uid://djenr82ymnc30" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0009.png" id="11_ptw0g"]
+[ext_resource type="Texture2D" uid="uid://b8bvbbyaitp2g" path="res://assets/Pixel Art Gem Pack - Animated/GEM 2/BLUE/GEM 2 - BLUE - 0010.png" id="12_6ijb3"]
+[ext_resource type="Texture2D" uid="uid://dvkn12fte8b1c" path="res://assets/Pixel Art Wood/Transparent .PNG Files/wood_1.png" id="13_6x8t3"]
+[ext_resource type="AudioStream" uid="uid://coatp6yb8ondi" path="res://assets/sfx/pickup_special_item.wav" id="14_67o5m"]
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="15_gbbao"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11bjy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6x8t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_67o5m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gbbao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h05ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i63u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fd5y6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fg4dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_dy7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2guxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ptw0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6ijb3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67o5m"]
+size = Vector2(10, 10)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gbbao"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+
+[node name="SpecialItem" type="Area2D"]
+script = ExtResource("1_vp32b")
+
+[node name="Gem" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_11bjy")
+frame_progress = 0.616913
+
+[node name="Wood" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_6x8t3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_67o5m")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_gbbao")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_67o5m")
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("15_gbbao")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

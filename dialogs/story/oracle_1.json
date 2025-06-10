@@ -1,0 +1,69 @@
+{
+	"default": [
+		{
+			"speaker": "Telos",
+			"text": "O que é isso? O que está acontecendo? Quem é você?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "???",
+			"text": "Não há motivo para ter medo, Telos.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Como sabe meu nome?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "???",
+			"text": "Não há uma coisa que eu não saiba. Existo desde sempre e para sempre existirei.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "???",
+			"text": "Sempre soube de tudo e sempre saberei. É meu destino. Tu crês em destino, Telos?",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "...",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "???",
+			"text": "É de meu conhecimento que estás passando por um momento difícil. Estás questionando teus valores. Se é que sabias que tens valores.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Apenas me explique o que está acontecendo, para que eu possa seguir com a minha vida sem graça.",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Oráculo",
+			"text": "Sou o Oráculo.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Oráculo",
+			"text": "Minha intenção é ajudá-lo em tua jornada. Ainda não sabes, mas embarcaste numa aventura. E tudo por conta daquele casamento.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Uma grande perda de tempo. Nós somos todos temporários e nada faz sentido. A vida não faz sentido. Para quê se casar, então? Qual é o ponto?",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Oráculo",
+			"text": "Seria ineficaz dar-lhe a resposta. Portanto, terás de descobrir por conta própria. Estarei aqui para ajudá-lo, de qualquer maneira.",
+			"portrait": "assets/portraits/game/oracle.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "...",
+			"portrait": "assets/portraits/game/player.png"
+		}
+	]
+}

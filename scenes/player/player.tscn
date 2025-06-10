@@ -55,13 +55,6 @@ energy = 0.5
 texture = ExtResource("5_eepd0")
 texture_scale = 0.1
 
-[node name="InteractRayCast" type="RayCast2D" parent="."]
-position = Vector2(0, 12)
-target_position = Vector2(0, 16)
-collision_mask = 256
-hit_from_inside = true
-collide_with_areas = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 2

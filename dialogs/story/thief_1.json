@@ -1,0 +1,19 @@
+{
+	"default": [
+		{
+			"speaker": "Ladrão",
+			"text": "O que está fazendo por aqui?",
+			"portrait": "assets/portraits/game/rogue.png"
+		},
+		{
+			"speaker": "Telos",
+			"text": "Estou só...",
+			"portrait": "assets/portraits/game/player.png"
+		},
+		{
+			"speaker": "Ladrão",
+			"text": "Na verdade, não importa. Apenas me entregue tudo o que tem.",
+			"portrait": "assets/portraits/game/rogue.png"
+		}
+	]
+}

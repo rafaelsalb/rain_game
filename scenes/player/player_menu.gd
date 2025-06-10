@@ -7,12 +7,16 @@ extends Panel
 
 @onready var stats: Control = find_child("StatsVBoxContainer")
 @onready var health_label: Control = stats.find_child("HealthCountLabel")
+@onready var wood: TextureRect = find_child("Wood")
+@onready var gem: AnimatedSprite2D = find_child("Gem")
 
 
 func _ready() -> void:
 	self.visible = false
 	back_to_main_menu()
 	UIEventBus.sync_stats()
+	wood.visible = GameState.has_wood
+	gem.visible = GameState.has_gem
 
 
 func go_to_inventory_menu() -> void:
@@ -61,3 +65,11 @@ func _on_options_button_button_up() -> void:
 func highlight_inventory_button() -> void:
 	print("called highlight from player_menu.gd")
 	main_menu.highlight_inventory_button()
+
+
+func got_wood() -> void:
+	wood.visible = true
+
+
+func got_gem() -> void:
+	gem.visible = true

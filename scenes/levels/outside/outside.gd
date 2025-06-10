@@ -1,9 +1,15 @@
 extends "res://scenes/levels/Level.gd"
 
 
+@export var start_from_spawnpoint: bool = true
+
+
 func _ready():
 	spawn_point = $Spawnpoint.position
 	$AudioStreamPlayer.play()
+	GameState.show_tutorial_keybindings()
+	if start_from_spawnpoint:
+		GameState.player.global_position = $Spawnpoint.global_position
 
 
 func _on_tutorial_item_body_entered(body: Node2D) -> void:

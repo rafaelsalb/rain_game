@@ -1,11 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://kwvjy1tsq4cy"]
+[gd_scene load_steps=9 format=3 uid="uid://kwvjy1tsq4cy"]
 
 [ext_resource type="Script" uid="uid://cffiej08beop7" path="res://scenes/checkpoint/checkpoint.gd" id="1_qopk8"]
 [ext_resource type="Texture2D" uid="uid://lrkohefwo6pv" path="res://assets/UI/heart.png" id="1_w77t2"]
 [ext_resource type="Texture2D" uid="uid://dfsilvb76oxdx" path="res://assets/kenney_input-prompts-pixel-16/Tiles/tile_0078.png" id="3_2kgby"]
+[ext_resource type="Script" uid="uid://cnivxxwkt3nuv" path="res://scenes/dialog_manager/dialog_manager.gd" id="4_sg1lo"]
+[ext_resource type="AudioStream" uid="uid://dt2qdm3fjcaab" path="res://assets/RPG_Essentials_Free/8_Buffs_Heals_SFX/16_Atk_buff_04.wav" id="5_hacf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qopk8"]
 size = Vector2(16, 16)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hacf6"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+gravity = Vector3(0, 0, 0)
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 4
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_04dhy"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
 
 [node name="Checkpoint" type="StaticBody2D"]
 collision_layer = 257
@@ -21,6 +42,28 @@ texture = ExtResource("1_w77t2")
 [node name="InteractPrompt" type="Sprite2D" parent="."]
 position = Vector2(0, -20)
 texture = ExtResource("3_2kgby")
+
+[node name="DialogSpawner" type="Node" parent="."]
+script = ExtResource("4_sg1lo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hacf6")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 32
+sub_emitter = NodePath("ParticlesSubEmitter")
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_hacf6")
+
+[node name="ParticlesSubEmitter" type="GPUParticles2D" parent="Particles"]
+emitting = false
+use_fixed_seed = true
+seed = 1874882077
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_04dhy")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
